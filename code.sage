@@ -115,18 +115,20 @@ def conjugacy_class_scheme(G):
 	A = association_scheme(M)
 	return A
 
-def orbital_scheme_of_transitive_group(G):
+def load_all_functions():
 	load("https://raw.githubusercontent.com/sarobidy19/Intersection-density-sage/refs/heads/main/all-functions.sage")
+load_all_functions()
+
+def orbital_scheme_of_transitive_group(G):
 	S = sub_orbits(G)
 	A = association_scheme([matrix.identity(G.degree())]+[x.adjacency_matrix() for x in S[0]]+[x[0].adjacency_matrix() for x in S[1]])
 	return A
 
 def orbital_scheme_of_group_action(G):
-	
+	G = permutation_group(G.gens())
 	H = G.stabilizer(G.domain()[0])
-	load("https://raw.githubusercontent.com/sarobidy19/Intersection-density-sage/refs/heads/main/all-functions.sage")
-	K = 
-	S = sub_orbits(G)
-	A = association_scheme([matrix.identity(G.degree())]+[x.adjacency_matrix() for x in S[0]]+[x[0].adjacency_matrix() for x in S[1]])
+	K = G.group_action(H)
+	S = sub_orbits(K)
+	A = association_scheme([matrix.identity(K.degree())]+[x.adjacency_matrix() for x in S[0]]+[x[0].adjacency_matrix() for x in S[1]])
 	return A
 
