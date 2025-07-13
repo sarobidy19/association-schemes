@@ -125,9 +125,8 @@ def orbital_scheme_of_transitive_group(G):
 	return A
 
 def orbital_scheme_of_group_action(G):
-	G = permutation_group(G.gens())
 	H = G.stabilizer(G.domain()[0])
-	K = G.group_action(H)
+	K = group_action_on_cosets(G,H)
 	S = sub_orbits(K)
 	A = association_scheme([matrix.identity(K.degree())]+[x.adjacency_matrix() for x in S[0]]+[x[0].adjacency_matrix() for x in S[1]])
 	return A
