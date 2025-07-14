@@ -100,3 +100,11 @@ sage: AS = association_scheme([I,A,B])
 - ``is_schurian()``
 - ``automorphism_group()``
 - ``character_table()``
+- ``P_matrix()``
+- ``Q_matrix()``
+- ``is_formally_self_dual()``
+- ``dimension_of_t_zero()``
+- ``dimension_of_centralizer_algebra()``
+- ``TerwilligerAlgebra()``
+- ``graphs_in_scheme()``
+- ``ratio_bound()``
