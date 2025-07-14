@@ -15,18 +15,18 @@ class association_scheme:
 			A += i*L[i]
 		return A
 	def intersection_number(self,i,j,k):
-		r = self.order()
+		n = self.order()
 		M = self.base_matrix()
 		u = list(M[0]).index(k)
 		check = lambda l: M[0,l] == i and M[l,u] == j
-		return len(list(filter(check,[0..r-1])))
+		return len(list(filter(check,[0..n-1])))
 	def is_commutative(self):
 		key = True
 		r = self.rank()
 		for i in [0..r-1]:
 			for j in [0..r-1]:
 				for k in [0..r-1]:
-					if i != j and A.intersection_number(i,j,k) != A.intersection_number(j,i,k):
+					if i != j and self.intersection_number(i,j,k) != self.intersection_number(j,i,k):
 						return False
 					else:
 						pass
