@@ -3,7 +3,7 @@
 This is a Sagemath package for association schemes. To load the package, just type the following in a terminal.
 
 ```  sage
-sage: load("https://raw.githubusercontent.com/sarobidy19/association-schemes/refs/heads/main/code.sage")
+load("https://raw.githubusercontent.com/sarobidy19/association-schemes/refs/heads/main/code.sage")
 ```
 ### Generic association schemes
 An association scheme in the association-schemes package is defined by giving the adjacency matrices corresponding to the relations.
@@ -95,8 +95,37 @@ sage: AS = association_scheme([I,A,B])
     [2 2 2 1 2 1 1 2 0 2]
     [2 2 2 2 1 2 1 1 2 0]
     ```
-- ``intersection_number()``
+- ``intersection_number(self,i,j,k)``
+
+    Return the intersection number $p_{ij}^k$ of the association scheme.
+
+    INPUT:
+        * ``self``
+        * integers $i,j,$ and $k$ between $0$ and the $r-1$, where $r$ is the rank of the association scheme.
+
+    OUTPUT:
+        - The value of $p_{ij}^k$.
+
+    ``` sage
+        sage: X = graphs.AffineOrthogonalPolarGraph(6,2,sign="-")
+        sage: A = X.adjacency_matrix()
+        sage: B = X.complement().adjacency_matrix()
+        sage: I = matrix.identity(X.order())
+        sage: AS = association_scheme([I,A,B])
+        sage: AS.intersection_number(0,1,1)
+        1
+        sage: AS.intersection_number(1,1,1)
+        10
+        sage: AS.intersection_number(2,2,1)
+        20
+        sage: AS.intersection_number(2,2,2)
+        20
+    ```
+
 - ``is_commutative()``
+
+    Return ``True`` 
+
 - ``is_schurian()``
 - ``automorphism_group()``
 - ``character_table()``
