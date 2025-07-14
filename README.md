@@ -146,6 +146,8 @@ sage: AS = association_scheme([I,A,B])
 
     Return whether or not ``self`` is Schurian, that is, its relations are the orbital of a transitive group
 
+    EXAMPLE: 
+
     ```sage
     sage: X = graphs.ShrikhandeGraph()
     sage: G = X.automorphism_group()
@@ -160,7 +162,6 @@ sage: AS = association_scheme([I,A,B])
     False
     ```
 
-    .
 - ``automorphism_group()``
 - ``character_table()``
 - ``P_matrix()``
