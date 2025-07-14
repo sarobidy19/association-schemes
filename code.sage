@@ -258,7 +258,7 @@ def sub_orbits(G): ##need a fix (G is not the automorphism of the resulting grap
 	return symmetric,asymmetric_pairs
 
 def common_eigenvectors(L):
-	eigenspaces_blocks = spectral_decomposition(L[0])
+	eigenspaces_blocks = spectral_decomposition_of_matrix(L[0])
 	for i in [1..len(L)-1]:
 		A = L[i]
 		new_eigenspaces_blocks = []
