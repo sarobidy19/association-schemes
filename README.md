@@ -100,12 +100,12 @@ sage: AS = association_scheme([I,A,B])
     Return the intersection number $p_{ij}^k$ of the association scheme ``self``.
 
     
-    INPUT: integers $i,j,$ and $k$ between $0$ and the $r-1$, where $r$ is the rank of the association scheme.
+    INPUT: integers $i,j,$ and $k$ between $0$ and the $r$, where $r+1$ is the rank of the association scheme.
 
     OUTPUT: the value of $p_{ij}^k$.
     
     EXAMPLE:
-    
+
     For example, the intersection numbers of the affine polar graph $VO_6^-(2)$ can be computed as follows.
 
     ``` sage
@@ -126,7 +126,21 @@ sage: AS = association_scheme([I,A,B])
 
 - ``is_commutative()``
 
-    Return ``True`` 
+    Return whether or not ``self`` is a commutative association scheme.
+
+    The $d$-class assocition scheme $(\Omega,\mathcal{R})$ is commutative if its intersection numbers satisfy $p_{ij}^k = p_{ji}^k$, for all $0\leq i,j,k\leq d$. 
+
+    Example:
+
+    ```sage
+            sage: AS = OrbitalSchemeTransitiveGroup(group_acting_on_subsets(PSL(2,7),2))
+            sage: AS.is_commutative()
+            False
+            sage: AS = OrbitalSchemeTransitiveGroup(group_acting_on_subsets(AlternatingGroup(7),2))
+            sage: AS.is_commutative()
+            True
+
+    ```
 
 - ``is_schurian()``
 - ``automorphism_group()``
