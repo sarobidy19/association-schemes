@@ -95,16 +95,18 @@ sage: AS = association_scheme([I,A,B])
     [2 2 2 1 2 1 1 2 0 2]
     [2 2 2 2 1 2 1 1 2 0]
     ```
-- ``intersection_number(self,i,j,k)``
+- ``intersection_number(i,j,k)``
 
-    Return the intersection number $p_{ij}^k$ of the association scheme.
+    Return the intersection number $p_{ij}^k$ of the association scheme ``self``.
 
-    INPUT:
-        * ``self``
-        * integers $i,j,$ and $k$ between $0$ and the $r-1$, where $r$ is the rank of the association scheme.
+    
+    INPUT: integers $i,j,$ and $k$ between $0$ and the $r-1$, where $r$ is the rank of the association scheme.
 
-    OUTPUT:
-        - The value of $p_{ij}^k$.
+    OUTPUT: the value of $p_{ij}^k$.
+    
+    EXAMPLE:
+    
+    For example, the intersection numbers of the affine polar graph $VO_6^-(2)$ can be computed as follows.
 
     ``` sage
         sage: X = graphs.AffineOrthogonalPolarGraph(6,2,sign="-")
