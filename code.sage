@@ -42,33 +42,6 @@ class association_scheme:
 		G = self.automorphism_group()
 		S = G.stabilizer(G.domain()[0])
 		return len(S.orbits()) == self.rank()
-	def class_with_maximum_number_of_eigenvalues(self):
-		L = self.adjacency_matrices()
-		m = 1
-		y = L[0]
-		for x in L:
-			t = len(set(x.eigenvalues()))
-			if t > m:
-				m = t
-				y = x
-		return m,y
-	def spectral_decomposition(self):
-		m,y = self.class_with_maximum_number_of_eigenvalues()
-		X = Graph(y)
-		n = X.order()
-		E = X.eigenspaces()
-		eigenvalues = [x[0] for x in E]
-		mats = [x[1].matrix() for x in E]
-		orthogonal_mats = [x.gram_schmidt()[0] for x in mats]
-		idempotents = []
-		for x in orthogonal_mats:
-			r = x.rows()
-			A = zero_matrix(n,n)
-			for a in r:
-				a = Matrix(a)
-				A += a.transpose()*a/(a*a.transpose()).list()[0]
-			idempotents.append(A)
-		return eigenvalues,idempotents
 	def character_table(self):
 		if self.is_commutative() == False:
 			return "Error: Association Scheme not commutative"

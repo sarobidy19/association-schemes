@@ -130,19 +130,37 @@ sage: AS = association_scheme([I,A,B])
 
     The $d$-class assocition scheme $(\Omega,\mathcal{R})$ is commutative if its intersection numbers satisfy $p_{ij}^k = p_{ji}^k$, for all $0\leq i,j,k\leq d$. 
 
-    Example:
+    EXAMPLE:
 
     ```sage
-            sage: AS = OrbitalSchemeTransitiveGroup(group_acting_on_subsets(PSL(2,7),2))
-            sage: AS.is_commutative()
-            False
-            sage: AS = OrbitalSchemeTransitiveGroup(group_acting_on_subsets(AlternatingGroup(7),2))
-            sage: AS.is_commutative()
-            True
+    sage: AS = OrbitalSchemeTransitiveGroup(group_acting_on_subsets(PSL(2,7),2))
+    sage: AS.is_commutative()
+    False
+    sage: AS = OrbitalSchemeTransitiveGroup(group_acting_on_subsets(AlternatingGroup(7),2))
+    sage: AS.is_commutative()
+    True
 
     ```
 
 - ``is_schurian()``
+
+    Return whether or not ``self`` is Schurian, that is, its relations are the orbital of a transitive group
+
+    ```sage
+    sage: X = graphs.ShrikhandeGraph()
+    sage: G = X.automorphism_group()
+    sage: AS1 = OrbitalSchemeTransitiveGroup(G)
+    sage: AS1.is_schurian()
+    True
+    sage: A = X.adjacency_matrix()
+    sage: B = X.complement().adjacency_matrix()
+    sage: I = matrix.identity(X.order())
+    sage: AS2 = association_scheme([I,A,B])
+    sage: AS2.is_schurian()
+    False
+    ```
+
+    .
 - ``automorphism_group()``
 - ``character_table()``
 - ``P_matrix()``
