@@ -100,7 +100,7 @@ class association_scheme:
 		D = [diagonal_matrix(A[v]) for A in L]
 		gens = L + D
 		n = self.order()
-		M = MatrixSpace(QQ, n, n)
+		M = MatrixSpace(CC, n, n)
 		T = M.subalgebra(gens)
 		return T
 	def graphs_in_scheme(self):
@@ -113,6 +113,10 @@ class association_scheme:
 		return grphs
 	def is_formally_self_dual(self):
 		return self.P_matrix() == self.Q_matrix().conjugate_transpose().transpose()
+	def krein_parameters(self,i,j,k,ring = QQ):
+		T = common_eigenvectors(self.adjacency_matrices())
+		return self.order()*(T[k][1]*(Schur_multiplication(T[i][1],T[j][1],ring))).trace()/(T[k][1]).trace()
+
 
 
 
@@ -244,11 +248,15 @@ def common_eigenvectors(L):
 				new_eigenspaces_blocks.append((x+[ev],P))
 			else:
 				Ev = spectral_decomposition_of_matrix(B)
-				for (y,C) in Ev:
-					if y[0] != 0:
-						new_eigenspaces_blocks.append((x+y,P*C))
-					elif y[0] == 0 and A == B:
-						new_eigenspaces_blocks.append((x+y,P*C))
+				if len(Ev) == 1:
+					y,C = Ev[0]
+					new_eigenspaces_blocks.append((x+y,P*C))
+				else:
+					for (y,C) in Ev:
+						if y[0] != 0:
+							new_eigenspaces_blocks.append((x+y,P*C))
+						elif y[0] == 0 and A == B:
+							new_eigenspaces_blocks.append((x+y,P*C))
 		eigenspaces_blocks = new_eigenspaces_blocks
 	return eigenspaces_blocks
 
@@ -268,3 +276,10 @@ def spectral_decomposition_of_matrix(A):
 			B += a.transpose()*a/(a*a.transpose()).list()[0]
 		spectral_eigenspaces.append(([E[i][0]],B))
 	return spectral_eigenspaces
+
+def Schur_multiplication(A,B,ring = QQ):
+	C = zero_matrix(ring,A.dimensions()[0])
+	for i in [0..A.dimensions()[0]-1]:
+		for j in [0..A.dimensions()[0]-1]:
+			C[i,j] = A[i,j]*B[i,j]
+	return C

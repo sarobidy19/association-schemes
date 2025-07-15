@@ -163,6 +163,24 @@ sage: AS = association_scheme([I,A,B])
     ```
 
 - ``automorphism_group()``
+
+    Return the automorphism group of ``self``, that is, the permutation group that preserves all relations of ``self``.
+
+    EXAMPLE:
+
+    ```sage
+    sage: X = graphs.ShrikhandeGraph()
+    sage: G = X.automorphism_group()
+    sage: A = X.adjacency_matrix()
+    sage: B = X.complement().adjacency_matrix()
+    sage: I = matrix.identity(X.order())
+    sage: AS = association_scheme([I,A,B])
+    sage: K = AS.automorphism_group()
+    sage: K.structure_description()
+    '(((C4 x C4) : C3) : C2) : C2'
+    sage: K.is_transitive()
+    True
+    ```
 - ``character_table()``
 - ``P_matrix()``
 - ``Q_matrix()``
