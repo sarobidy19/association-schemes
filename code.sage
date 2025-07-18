@@ -67,15 +67,26 @@ class association_scheme:
 		else:
 			P = self.character_table()
 			return self.order()*P.inverse()
-	def dimension_of_t_zero(self):
-		d = 0
-		r = self.rank()
-		T = Tuples([0..r-1],3)
-		for x in T:
-			i,j,k = x
-			if self.intersection_number(i,j,k) != 0:
-				d += 1
-		return d
+	def dimension_of_t_zero(self,matrix=False):
+		if matrix == False:
+			d = 0
+			r = self.rank()
+			T = Tuples([0..r-1],3)
+			for x in T:
+				i,j,k = x
+				if self.intersection_number(i,j,k) != 0:
+					d += 1
+			return d
+		elif matrix == True:
+			r = self.rank()
+			mat = zero_matrix(r)
+			T = Tuples([0..r-1],2)
+			for x in T:
+				i,k = x 
+				check = lambda j: self.intersection_number(i,j,k)  != 0  
+				mat[i,k] = len(list(filter(check,[0..r-1])))
+			return mat
+
 	def dimension_of_centralizer_algebra(self,v):
 		G = self.automorphism_group()
 		S = G.stabilizer(v)
@@ -117,6 +128,14 @@ class association_scheme:
 		T = common_eigenvectors(self.adjacency_matrices())
 		return self.order()*(T[k][1]*(Schur_multiplication(T[i][1],T[j][1],ring))).trace()/(T[k][1]).trace()
 
+	def adjacency_algebra(self,ring):
+		L = self.adjacency_matrices()
+		n = self.order()
+		M = MatrixSpace(ring, n, n)
+		B = M.subalgebra(L)
+		return B 
+	#def is_coherent_configuration(self):
+		
 
 
 
@@ -147,7 +166,8 @@ load_all_functions()
 
 def OrbitalSchemeTransitiveGroup(G):
 	S = sub_orbits(G)
-	A = association_scheme([matrix.identity(G.degree())]+[x.adjacency_matrix() for x in S[0]]+[x[0].adjacency_matrix() for x in S[1]])
+	V = S[0][0].vertices()
+	A = association_scheme([matrix.identity(G.degree())]+[x.adjacency_matrix(vertices = V) for x in S[0]]+[x[0].adjacency_matrix(vertices = V) for x in S[1]])
 	return A
 
 def OrbitalSchemeGroupAction(G):
@@ -181,14 +201,15 @@ def JohnsonScheme(n,k):
 	return association_scheme(base_matrix_to_adjacency_matrices(M))
 
 def GrassmannScheme(q,n,k):
-	X = graphs.GrassmannGraph(q,n,k)
+	m = min(n-k,k)
+	X = graphs.GrassmannGraph(q,n,m)
 	V = X.vertices()
 	M = zero_matrix(X.order())
 	for i in [0..len(V)-1]:
 		A = V[i]
 		for j in [0..len(V)-1]:
 			B = V[j]
-			M[i,j] = k-len(set(A).intersection(set(B)))
+			M[i,j] = m-len(A.intersection(B))
 	return association_scheme(base_matrix_to_adjacency_matrices(M))
 
 """def GrassmannScheme(q,n,k):
@@ -283,3 +304,4 @@ def Schur_multiplication(A,B,ring = QQ):
 		for j in [0..A.dimensions()[0]-1]:
 			C[i,j] = A[i,j]*B[i,j]
 	return C
+
