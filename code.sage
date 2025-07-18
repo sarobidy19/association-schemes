@@ -87,14 +87,33 @@ class association_scheme:
 				mat[i,k] = len(list(filter(check,[0..r-1])))
 			return mat
 
-	def dimension_of_centralizer_algebra(self,v):
-		G = self.automorphism_group()
-		S = G.stabilizer(v)
-		d = 0
-		for x in S.orbits():
-			K = S.stabilizer(x[0])
-			d += len(K.orbits())
-		return d
+	def dimension_of_centralizer_algebra(self,v,matrix = False):
+		if matrix == False:
+			G = self.automorphism_group()
+			S = G.stabilizer(v)
+			d = 0
+			for x in S.orbits():
+				K = S.stabilizer(x[0])
+				d += len(K.orbits())
+			return d
+		elif matrix == True:
+			G = self.automorphism_group()
+			S = G.stabilizer(G.domain()[0])
+			L = list(S.orbits())
+			mat = []
+			for x in L:
+				K = S.stabilizer(x[0])
+				T = [0]*len(L)
+				for y in K.orbits():
+					for Z in L:
+						if y[0] in Z:
+							j = L.index(Z)
+							T[j] = T[j] + 1
+						else:
+							pass
+				mat.append(T)
+			return Matrix(mat)
+
 	def ratio_bound(self,i):
 		A = self.adjacency_matrices()[i]
 		if A == matrix.identity(self.order()):
@@ -106,12 +125,12 @@ class association_scheme:
 				X = Graph(A)
 				Ev = set(X.spectrum())
 				return X.order()/(1-max(Ev)/min(Ev))
-	def TerwilligerAlgebra(self,v):
+	def TerwilligerAlgebra(self,v,ring = CC):
 		L = self.adjacency_matrices()
 		D = [diagonal_matrix(A[v]) for A in L]
 		gens = L + D
 		n = self.order()
-		M = MatrixSpace(CC, n, n)
+		M = MatrixSpace(ring, n, n)
 		T = M.subalgebra(gens)
 		return T
 	def graphs_in_scheme(self):
@@ -211,6 +230,17 @@ def GrassmannScheme(q,n,k):
 			B = V[j]
 			M[i,j] = m-len(A.intersection(B))
 	return association_scheme(base_matrix_to_adjacency_matrices(M))
+
+def HammingScheme(D,q):
+	V = Tuples([1..q],D)
+	M = zero_matrix(len(V))
+	for i in [0..len(V)-1]:
+		for j in [0..len(V)-1]:
+			test = lambda k: V[i][k] == V[j][k] 
+			M[i,j] = D - len(list(filter(test,[0..D-1])))
+	L = base_matrix_to_adjacency_matrices(M)
+	return association_scheme(L)
+
 
 """def GrassmannScheme(q,n,k):
 	V = VectorSpace(GF(q),n)
