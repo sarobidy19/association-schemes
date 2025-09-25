@@ -133,14 +133,23 @@ class association_scheme:
 		M = MatrixSpace(ring, n, n)
 		T = M.subalgebra(gens)
 		return T
-	def graphs_in_scheme(self):
+	def graphs_in_scheme(self,digraphs=False):
 		L = self.adjacency_matrices()
-		grphs = []
-		for A in L:
-			if A != matrix.identity(self.order()):
-				if A.is_symmetric():
-					grphs.append(Graph(A))
-		return grphs
+		if digraphs == False:
+			grphs = []
+			for A in L:
+				if A != matrix.identity(self.order()):
+					if A.is_symmetric():
+						grphs.append(Graph(A,vertex_labels=[1..A.dimensions()[0]]))
+			return grphs
+		else:
+			grphs = []
+			for A in L:
+				if A != matrix.identity(self.order()) and A.is_symmetric():
+					grphs.append(Graph(A,vertex_labels=[1..A.dimensions()[0]]))
+				if  A != matrix.identity(self.order()) and A.is_symmetric() == False:
+					grphs.append(DiGraph(A,vertex_labels=[1..A.dimensions()[0]]))
+			return grphs
 	def is_formally_self_dual(self):
 		return self.P_matrix() == self.Q_matrix().conjugate_transpose().transpose()
 	def krein_parameters(self,i,j,k,ring = QQ):
@@ -185,7 +194,7 @@ load_all_functions()
 
 def OrbitalSchemeTransitiveGroup(G):
 	S = sub_orbits(G)
-	V = S[0][0].vertices()
+	V = G.domain()
 	A = association_scheme([matrix.identity(G.degree())]+[x.adjacency_matrix(vertices = V) for x in S[0]]+[x[0].adjacency_matrix(vertices = V) for x in S[1]])
 	return A
 
@@ -324,7 +333,7 @@ def spectral_decomposition_of_matrix(A):
 		B = zero_matrix(A.dimensions()[0])
 		for a in r:
 			a = Matrix(a)
-			B += a.transpose()*a/(a*a.transpose()).list()[0]
+			B += a.transpose()*a/(a*a.conjugate_transpose()).list()[0]
 		spectral_eigenspaces.append(([E[i][0]],B))
 	return spectral_eigenspaces
 
@@ -335,3 +344,5 @@ def Schur_multiplication(A,B,ring = QQ):
 			C[i,j] = A[i,j]*B[i,j]
 	return C
 
+
+#def 

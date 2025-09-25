@@ -3,7 +3,7 @@
 This is a Sagemath package for association schemes. To load the package, just type the following in a terminal.
 
 ```  sage
-load("https://raw.githubusercontent.com/sarobidy19/association-schemes/refs/heads/main/code.sage")
+load("https://raw.githubusercontent.com/sarobidy19/association-schemes/refs/heads/main/code.sobj")
 ```
 ### Generic association schemes
 An association scheme in the association-schemes package is defined by giving the adjacency matrices corresponding to the relations.
@@ -239,7 +239,7 @@ sage: AS = association_scheme([I,A,B])
     ```
 - ``is_formally_self_dual()``
 
-    Return whether `self` is formally self dual. That is, whether $Q = \overline(P)$.
+    Return whether `self` is formally self dual. That is, whether $Q = \overline{P}$.
 
     EXAMPLE: 
 
@@ -342,3 +342,15 @@ sage: AS = association_scheme([I,A,B])
     sage: AS.ratio_bound(3)
     21
     ``` 
+
+
+### Association schemes with names
+
+ - `OrbitalSchemeTransitiveGroup(G)`
+
+    Return the orbital scheme of the transitive group `G`.
+
+    INPUT:  `G` - a transitive group.
+
+    OUTPUT:  orbital scheme of the transitive group `G`.
+
