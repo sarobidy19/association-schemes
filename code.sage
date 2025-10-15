@@ -164,7 +164,11 @@ class association_scheme:
 		M = MatrixSpace(ring, n, n)
 		B = M.subalgebra(L)
 		return B 
+	def bose_mesner_algebra(self):
+		return self.adjacency_algebra(CC)
 	#def is_coherent_configuration(self):
+	def is_triply_regular(self):
+		return self.TerwilligerAlgebra(1).dimension() == self.dimension_of_t_zero()
 		
 
 

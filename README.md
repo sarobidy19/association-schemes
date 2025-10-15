@@ -354,3 +354,11 @@ sage: AS = association_scheme([I,A,B])
 
     OUTPUT:  orbital scheme of the transitive group `G`.
 
+ - `JohsonScheme(n,k)`
+
+    Return the Johnson scheme with parameters `n` and `k`.
+
+    INPUT: two non-negative integers `n` and `k` such that $n \geq 2k$.
+
+    OUTPUT:  The Johnson association scheme.
+
