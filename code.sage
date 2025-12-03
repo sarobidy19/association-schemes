@@ -195,6 +195,12 @@ class association_scheme:
 						#print ("product of certain matrices not in the algebra ...")
 						return False 
 		return True
+	def fusion(self,P):
+		for x in P:
+        	B = sum([L[i] for i in x])
+        	V.append(B)
+        AS = association_scheme(V)
+        return AS.is_association_scheme()
 
 		
 
