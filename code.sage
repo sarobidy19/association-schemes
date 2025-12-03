@@ -49,12 +49,15 @@ class association_scheme:
 			return "Error: Association Scheme not commutative"
 		else:
 			table = []
-			T = common_eigenvectors(self.adjacency_matrices())
+			T = common_eigenvectors(self.adjacency_matrices()) #can contain a matrix of zero
 			r = self.rank()
 			for i in [0..r-1]:
 				row = []
 				for j in [0..r-1]:
-					row.append(T[i][0][j])
+					if T[i][1] == zero_matrix(self.order()):
+						pass
+					else:
+						row.append(T[i][0][j])
 				table.append(row)
 			return Matrix(table)
 
