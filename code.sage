@@ -54,9 +54,6 @@ class association_scheme:
 			for i in [0..r-1]:
 				row = []
 				for j in [0..r-1]:
-					if T[i][1] == zero_matrix(self.order()):
-						pass
-					else:
 						row.append(T[i][0][j])
 				table.append(row)
 			return Matrix(table)
@@ -204,7 +201,10 @@ class association_scheme:
 			B = sum([L[i] for i in x])
 			V.append(B)
 		AS = association_scheme(V)
-		return AS.is_association_scheme()
+		if AS.is_association_scheme() == False:
+			return False 
+		elif AS.is_association_scheme() == True:
+			return AS 
 
 		
 
@@ -361,7 +361,13 @@ def common_eigenvectors(L):
 						elif y[0] == 0 and A == B:
 							new_eigenspaces_blocks.append((x+y,P*C))
 		eigenspaces_blocks = new_eigenspaces_blocks
-	return eigenspaces_blocks
+		common_eigenspaces = []
+		for T in eigenspaces_blocks:
+			if T[1] == zero_matrix(A.dimensions()):
+				pass
+			else:
+				common_eigenspaces.append(T)
+	return common_eigenspaces
 
 
 def spectral_decomposition_of_matrix(A):
