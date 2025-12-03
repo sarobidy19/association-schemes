@@ -169,6 +169,33 @@ class association_scheme:
 	#def is_coherent_configuration(self):
 	def is_triply_regular(self):
 		return self.TerwilligerAlgebra(1).dimension() == self.dimension_of_t_zero()
+
+	def is_association_scheme(self):
+		L = self.adjacency_matrices()
+		r = len(L)
+		if sum(L) != matrix.ones(self.order()):
+			print ("matrices not summing to the all-ones matrix ...")
+			return False
+		else:
+			for i in [0..r-1]:
+				if L[i].transpose() in L:
+					pass
+				else:
+					print ("matrices not closed under transposition ...")
+					return False
+			for i in [0..r-1]:
+				for j in [0..r-1]:
+					A = L[i]*L[j]
+					B = zero_matrix(self.order())
+					for k in [0..r-1]:
+						B += self.intersection_number(i,j,k)*L[k]
+					if A == B:
+						pass
+					else:
+						print ("product of certain matrices not in the algebra ...")
+						return False 
+		return True
+
 		
 
 
