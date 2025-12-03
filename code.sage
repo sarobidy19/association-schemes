@@ -196,6 +196,7 @@ class association_scheme:
 						return False 
 		return True
 	def fusion(self,P):
+		V = []
 		for x in P:
 			B = sum([L[i] for i in x])
 			V.append(B)
