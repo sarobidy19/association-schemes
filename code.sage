@@ -174,14 +174,14 @@ class association_scheme:
 		L = self.adjacency_matrices()
 		r = len(L)
 		if sum(L) != matrix.ones(self.order()):
-			print ("matrices not summing to the all-ones matrix ...")
+			#print ("matrices not summing to the all-ones matrix ...")
 			return False
 		else:
 			for i in [0..r-1]:
 				if L[i].transpose() in L:
 					pass
 				else:
-					print ("matrices not closed under transposition ...")
+					#print ("matrices not closed under transposition ...")
 					return False
 			for i in [0..r-1]:
 				for j in [0..r-1]:
@@ -192,7 +192,7 @@ class association_scheme:
 					if A == B:
 						pass
 					else:
-						print ("product of certain matrices not in the algebra ...")
+						#print ("product of certain matrices not in the algebra ...")
 						return False 
 		return True
 
