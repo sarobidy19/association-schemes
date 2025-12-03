@@ -363,7 +363,7 @@ def common_eigenvectors(L):
 		eigenspaces_blocks = new_eigenspaces_blocks
 		common_eigenspaces = []
 		for T in eigenspaces_blocks:
-			if T[1] == zero_matrix(A.dimensions()):
+			if T[1] == zero_matrix(A.dimensions()[0]):
 				pass
 			else:
 				common_eigenspaces.append(T)
