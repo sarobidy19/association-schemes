@@ -206,6 +206,19 @@ class association_scheme:
 		elif AS.is_association_scheme() == True:
 			return AS 
 
+	def inner_distribution(self,Y):
+		v = []
+		V = [0..self.order()-1]
+		for i in V:
+			if i in Y:
+				v.append(1)
+			else:
+				v.append(0)
+		v = Matrix(v)
+		L = self.adjacency_matrices()
+		inner_dist = [1/len(Y)*v.transpose()*L[i]*v for i in [0..self.rank()-1]]
+		return inner_dist
+
 		
 
 
