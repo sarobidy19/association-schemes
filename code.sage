@@ -197,6 +197,7 @@ class association_scheme:
 		return True
 	def fusion(self,P):
 		V = []
+		L = self.adjacency_matrices()
 		for x in P:
 			B = sum([L[i] for i in x])
 			V.append(B)
@@ -216,13 +217,8 @@ class association_scheme:
 				v.append(0)
 		v = Matrix(v)
 		L = self.adjacency_matrices()
-		inner_dist = [1/len(Y)*v.transpose()*L[i]*v for i in [0..self.rank()-1]]
-		return inner_dist
-
-		
-
-
-
+		inner_dist = [(1/len(Y)*v*L[i]*v.transpose())[0,0] for i in [0..self.rank()-1]]
+		return Matrix(inner_dist)
 
 
 def conjugacy_class_scheme(G):
