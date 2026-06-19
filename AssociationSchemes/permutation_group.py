@@ -1,6 +1,6 @@
 
 #from sage.groups.perm_gps.permgroup import PermutationGroup_generic
-#from sage.groups.perm_gps.permgroup import PermutationGroup_action
+#from  import PermutationGroup_action
 #from sage.graphs.digraph import DiGraph
 #from sage.combinat.subset import Subsets
 
@@ -60,7 +60,7 @@ class PermutationGroup(PermutationGroup_generic):
 		G = self.subgroup(S)
 		action_on_subsets = lambda h,y: frozenset([h(z) for z in y])
 		V = Subsets(self.domain(),k)
-		H = PermutationGroup_action(S, action = action_on_subsets,domain=[frozenset(v) for v in V])
+		H = sage.groups.perm_gps.permgroup.PermutationGroup_action(S, action = action_on_subsets,domain=[frozenset(v) for v in V])
 		return PermutationGroup(H.minimal_generating_set())
 
 	def rank_of_group(self):
