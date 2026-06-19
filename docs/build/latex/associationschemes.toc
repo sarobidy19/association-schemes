@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Association Schemes}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Generic association schemes}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}AssociationSchemes.generic\_schemes module}{1}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Association Schemes with names}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}AssociationSchemes.perfect\_matching module}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}AssociationSchemes.schemes\_with\_names module}{9}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}Permutation Groups}{11}{chapter.2}%
+\contentsline {chapter}{Python Module Index}{13}{section*.55}%
+\contentsline {chapter}{Index}{15}{section*.56}%

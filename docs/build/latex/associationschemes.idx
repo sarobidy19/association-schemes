@@ -1,0 +1,60 @@
+\indexentry{module@\spxentry{module}!AssociationSchemes.generic\_schemes@\spxentry{AssociationSchemes.generic\_schemes}|hyperpage}{1}
+\indexentry{AssociationSchemes.generic\_schemes@\spxentry{AssociationSchemes.generic\_schemes}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{AssociationScheme (class in AssociationSchemes.generic\_schemes)@\spxentry{AssociationScheme}\spxextra{class in AssociationSchemes.generic\_schemes}|hyperpage}{1}
+\indexentry{P\_matrix() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{P\_matrix()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{1}
+\indexentry{Q\_matrix() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{Q\_matrix()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{1}
+\indexentry{TerwilligerAlgebra() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{TerwilligerAlgebra()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{1}
+\indexentry{adjacency\_algebra() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{adjacency\_algebra()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{2}
+\indexentry{adjacency\_matrices() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{adjacency\_matrices()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{2}
+\indexentry{automorphism\_group() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{automorphism\_group()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{2}
+\indexentry{base\_matrix() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{base\_matrix()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{3}
+\indexentry{bose\_mesner\_algebra() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{bose\_mesner\_algebra()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{3}
+\indexentry{character\_table() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{character\_table()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{3}
+\indexentry{dimension\_of\_centralizer\_algebra() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{dimension\_of\_centralizer\_algebra()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{4}
+\indexentry{dimension\_of\_t\_zero() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{dimension\_of\_t\_zero()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{4}
+\indexentry{fusion() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{fusion()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{4}
+\indexentry{graphs\_in\_scheme() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{graphs\_in\_scheme()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{5}
+\indexentry{inner\_distribution() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{inner\_distribution()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{5}
+\indexentry{intersection\_number() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{intersection\_number()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{5}
+\indexentry{is\_AssociationScheme() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{is\_AssociationScheme()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{6}
+\indexentry{is\_commutative() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{is\_commutative()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{6}
+\indexentry{is\_formally\_self\_dual() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{is\_formally\_self\_dual()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{6}
+\indexentry{is\_schurian() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{is\_schurian()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{7}
+\indexentry{is\_triply\_regular() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{is\_triply\_regular()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{7}
+\indexentry{krein\_parameters() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{krein\_parameters()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{7}
+\indexentry{order() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{order()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{7}
+\indexentry{rank() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{rank()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{8}
+\indexentry{ratio\_bound() (AssociationSchemes.generic\_schemes.AssociationScheme method)@\spxentry{ratio\_bound()}\spxextra{AssociationSchemes.generic\_schemes.AssociationScheme method}|hyperpage}{8}
+\indexentry{Schur\_multiplication() (in module AssociationSchemes.generic\_schemes)@\spxentry{Schur\_multiplication()}\spxextra{in module AssociationSchemes.generic\_schemes}|hyperpage}{8}
+\indexentry{base\_matrix\_to\_adjacency\_matrices() (in module AssociationSchemes.generic\_schemes)@\spxentry{base\_matrix\_to\_adjacency\_matrices()}\spxextra{in module AssociationSchemes.generic\_schemes}|hyperpage}{8}
+\indexentry{common\_eigenvectors() (in module AssociationSchemes.generic\_schemes)@\spxentry{common\_eigenvectors()}\spxextra{in module AssociationSchemes.generic\_schemes}|hyperpage}{8}
+\indexentry{spectral\_decomposition\_of\_matrix() (in module AssociationSchemes.generic\_schemes)@\spxentry{spectral\_decomposition\_of\_matrix()}\spxextra{in module AssociationSchemes.generic\_schemes}|hyperpage}{8}
+\indexentry{module@\spxentry{module}!AssociationSchemes.perfect\_matching@\spxentry{AssociationSchemes.perfect\_matching}|hyperpage}{8}
+\indexentry{AssociationSchemes.perfect\_matching@\spxentry{AssociationSchemes.perfect\_matching}!module@\spxentry{module}|hyperpage}{8}
+\indexentry{PerfectMatchingScheme() (in module AssociationSchemes.perfect\_matching)@\spxentry{PerfectMatchingScheme()}\spxextra{in module AssociationSchemes.perfect\_matching}|hyperpage}{8}
+\indexentry{cycle\_type\_of\_perfect\_matching() (in module AssociationSchemes.perfect\_matching)@\spxentry{cycle\_type\_of\_perfect\_matching()}\spxextra{in module AssociationSchemes.perfect\_matching}|hyperpage}{9}
+\indexentry{is\_even\_partition() (in module AssociationSchemes.perfect\_matching)@\spxentry{is\_even\_partition()}\spxextra{in module AssociationSchemes.perfect\_matching}|hyperpage}{9}
+\indexentry{module@\spxentry{module}!AssociationSchemes.schemes\_with\_names@\spxentry{AssociationSchemes.schemes\_with\_names}|hyperpage}{9}
+\indexentry{AssociationSchemes.schemes\_with\_names@\spxentry{AssociationSchemes.schemes\_with\_names}!module@\spxentry{module}|hyperpage}{9}
+\indexentry{GrassmannScheme() (in module AssociationSchemes.schemes\_with\_names)@\spxentry{GrassmannScheme()}\spxextra{in module AssociationSchemes.schemes\_with\_names}|hyperpage}{9}
+\indexentry{GroupScheme() (in module AssociationSchemes.schemes\_with\_names)@\spxentry{GroupScheme()}\spxextra{in module AssociationSchemes.schemes\_with\_names}|hyperpage}{9}
+\indexentry{HammingScheme() (in module AssociationSchemes.schemes\_with\_names)@\spxentry{HammingScheme()}\spxextra{in module AssociationSchemes.schemes\_with\_names}|hyperpage}{9}
+\indexentry{JohnsonScheme() (in module AssociationSchemes.schemes\_with\_names)@\spxentry{JohnsonScheme()}\spxextra{in module AssociationSchemes.schemes\_with\_names}|hyperpage}{9}
+\indexentry{OrbitalSchemeGroupAction() (in module AssociationSchemes.schemes\_with\_names)@\spxentry{OrbitalSchemeGroupAction()}\spxextra{in module AssociationSchemes.schemes\_with\_names}|hyperpage}{9}
+\indexentry{OrbitalSchemeTransitiveGroup() (in module AssociationSchemes.schemes\_with\_names)@\spxentry{OrbitalSchemeTransitiveGroup()}\spxextra{in module AssociationSchemes.schemes\_with\_names}|hyperpage}{9}
+\indexentry{module@\spxentry{module}!AssociationSchemes.permutation\_group@\spxentry{AssociationSchemes.permutation\_group}|hyperpage}{11}
+\indexentry{AssociationSchemes.permutation\_group@\spxentry{AssociationSchemes.permutation\_group}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{PermutationGroup (class in AssociationSchemes.permutation\_group)@\spxentry{PermutationGroup}\spxextra{class in AssociationSchemes.permutation\_group}|hyperpage}{11}
+\indexentry{action\_on\_subsets() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{action\_on\_subsets()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{group\_action() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{group\_action()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{is\_core\_free() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{is\_core\_free()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{is\_derangement() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{is\_derangement()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{is\_quasi\_primitive() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{is\_quasi\_primitive()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{number\_of\_derangements() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{number\_of\_derangements()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{orbital\_digraphs() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{orbital\_digraphs()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{permutation\_character() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{permutation\_character()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{pointwise\_stabilizer() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{pointwise\_stabilizer()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{rank\_of\_group() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{rank\_of\_group()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{setwise\_stabilizer() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{setwise\_stabilizer()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{stabilizer\_of\_invariant\_partition() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{stabilizer\_of\_invariant\_partition()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
+\indexentry{sub\_orbits() (AssociationSchemes.permutation\_group.PermutationGroup method)@\spxentry{sub\_orbits()}\spxextra{AssociationSchemes.permutation\_group.PermutationGroup method}|hyperpage}{11}
