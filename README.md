@@ -3,7 +3,7 @@
 This is a Sagemath package for association schemes. To load the package, just type the following in a terminal.
 
 ```  sage
-load("https://raw.githubusercontent.com/sarobidy19/association-schemes/refs/heads/main/code.sobj")
+load("https://raw.githubusercontent.com/sarobidy19/association-schemes/refs/heads/main/code.sage")
 ```
 ### Generic association schemes
 An association scheme in the association-schemes package is defined by giving the adjacency matrices corresponding to the relations.
@@ -28,7 +28,7 @@ sage: AS = association_scheme([I,A,B])
 ### Methods
 
 - ``order()``
-    
+
     Return the number of vertices in self.
 
     ```  sage
@@ -42,9 +42,9 @@ sage: AS = association_scheme([I,A,B])
 
     ```
 - ``rank()``
-  
+
     Return the number of relations in self.
-  
+
     ```  sage
     sage: X = graphs.PetersenGraph()
     sage: A = X.adjacency_matrix()
@@ -55,7 +55,7 @@ sage: AS = association_scheme([I,A,B])
     3
     ```
 - ``adjacency_matrices()``
-  
+
     Return the adjacency matrices of self as a list.
     ```  sage
     sage: AS.adjacency_matrices()
@@ -73,7 +73,7 @@ sage: AS = association_scheme([I,A,B])
     ]
     ```
 - ``base_matrix()``
-  
+
     Return the base matrix of self. If $`(\Omega,\mathcal{R})`$ is an association scheme with adjacency matrices $A_0 = I, A_1,\ldots, A_d$, then the *base matrix* of $(\Omega,\mathcal{R})$ is the matrix
     $0A_0 + 1A_1+2A_2+ \ldots+ dA_d$.
 
@@ -99,11 +99,11 @@ sage: AS = association_scheme([I,A,B])
 
     Return the intersection number $p_{ij}^k$ of the association scheme ``self``.
 
-    
+
     INPUT: integers $i,j,$ and $k$ between $0$ and the $r$, where $r+1$ is the rank of the association scheme.
 
     OUTPUT: the value of $p_{ij}^k$.
-    
+
     EXAMPLE:
 
     For example, the intersection numbers of the affine polar graph $VO_6^-(2)$ can be computed as follows.
@@ -128,7 +128,7 @@ sage: AS = association_scheme([I,A,B])
 
     Return whether or not ``self`` is a commutative association scheme.
 
-    The $d$-class assocition scheme $(\Omega,\mathcal{R})$ is commutative if its intersection numbers satisfy $p_{ij}^k = p_{ji}^k$, for all $0\leq i,j,k\leq d$. 
+    The $d$-class assocition scheme $(\Omega,\mathcal{R})$ is commutative if its intersection numbers satisfy $p_{ij}^k = p_{ji}^k$, for all $0\leq i,j,k\leq d$.
 
     EXAMPLE:
 
@@ -146,7 +146,7 @@ sage: AS = association_scheme([I,A,B])
 
     Return whether or not ``self`` is Schurian, that is, its relations are the orbital of a transitive group
 
-    EXAMPLE: 
+    EXAMPLE:
 
     ```sage
     sage: X = graphs.ShrikhandeGraph()
@@ -241,7 +241,7 @@ sage: AS = association_scheme([I,A,B])
 
     Return whether `self` is formally self dual. That is, whether $Q = \overline{P}$.
 
-    EXAMPLE: 
+    EXAMPLE:
 
     ```sage
     sage: X = graphs.ShrikhandeGraph()
@@ -312,7 +312,7 @@ sage: AS = association_scheme([I,A,B])
     ```    
 
 - ``graphs_in_scheme()``
-    
+
     Return the graphs corresponding to symmetric classes of `self`.
 
     EXAMPLE:
@@ -341,7 +341,7 @@ sage: AS = association_scheme([I,A,B])
     8
     sage: AS.ratio_bound(3)
     21
-    ``` 
+    ```
 
 
 ### Association schemes with names
@@ -361,4 +361,3 @@ sage: AS = association_scheme([I,A,B])
     INPUT: two non-negative integers `n` and `k` such that $n \geq 2k$.
 
     OUTPUT:  The Johnson association scheme.
-
