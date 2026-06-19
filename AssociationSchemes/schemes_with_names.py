@@ -3,9 +3,9 @@
 #load_all_functions()
 
 
-from permutation_group import PermutationGroup
+#from permutation_group import PermutationGroup
 from sage.graphs.digraph import DiGraph
-from generic_schemes import AssociationScheme
+#from generic_schemes import AssociationScheme
 from sage.matrix.special import matrix
 from sage.rings.finite_rings.integer_mod_ring import Zmod
 

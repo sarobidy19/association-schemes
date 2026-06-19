@@ -1,8 +1,8 @@
 
-from sage.groups.perm_gps.permgroup import PermutationGroup_generic
-from sage.groups.perm_gps.permgroup import PermutationGroup_action
-from sage.graphs.digraph import DiGraph
-from sage.combinat.subset import Subsets
+#from sage.groups.perm_gps.permgroup import PermutationGroup_generic
+#from sage.groups.perm_gps.permgroup import PermutationGroup_action
+#from sage.graphs.digraph import DiGraph
+#from sage.combinat.subset import Subsets
 
 class PermutationGroup(PermutationGroup_generic):
 
