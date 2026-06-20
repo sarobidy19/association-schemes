@@ -8,6 +8,7 @@ To load the package, just type the following in a terminal.
 
 
 ```  sage
+
 load("https://raw.githubusercontent.com/sarobidy19/association-schemes/refs/heads/main/AssociationSchemes/load_package.py")
 ```
 
