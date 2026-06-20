@@ -1,0 +1,1140 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html">
+
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>AssociationSchemes.generic_schemes - AssociationSchemesSagemath documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">AssociationSchemesSagemath  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <span class="sidebar-brand-text">AssociationSchemesSagemath  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">Generic association schemes</a><input aria-label="Toggle navigation of Generic association schemes" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../AssociationSchemes.generic_schemes.html">AssociationSchemes.generic_schemes module</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html#association-schemes-with-names">Association Schemes with names</a><input aria-label="Toggle navigation of Association Schemes with names" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../AssociationSchemes.perfect_matching.html">AssociationSchemes.perfect_matching module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AssociationSchemes.schemes_with_names.html">AssociationSchemes.schemes_with_names module</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html#permutation-groups">Permutation groups</a><input aria-label="Toggle navigation of Permutation groups" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../AssociationSchemes.permutation_group.html">AssociationSchemes.permutation_group module</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <h1>Source code for AssociationSchemes.generic_schemes</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComplexField</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">RationalField</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.graphs.digraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiGraph</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.graphs.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span>
+<span class="c1">#from sage.matrix.special import matrix, Matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.matrix.matrix_space</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatrixSpace</span>
+
+<span class="n">CC</span> <span class="o">=</span> <span class="n">ComplexField</span><span class="p">()</span>
+<span class="n">QQ</span> <span class="o">=</span> <span class="n">RationalField</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="AssociationScheme">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AssociationScheme</span><span class="p">:</span>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">gens</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		AssociationScheme(adjacency_matrices)</span>
+<span class="sd">		INPUT:</span>
+<span class="sd">		 - adjacency_matrices: a list of 01-matrices forming an association scheme.</span>
+<span class="sd">		OUTPUT:</span>
+<span class="sd">		  A class called .</span>
+
+
+<span class="sd">		**Example:** The Johnson scheme J(5,2) can be obtained as follows.</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">		sage: X = graphs.PetersenGraph()</span>
+
+<span class="sd">		sage: A = X.adjacency_matrix()</span>
+
+<span class="sd">		sage: B = X.complement().adjacency_matrix()</span>
+
+<span class="sd">		sage: I = matrix.identity(X.order())</span>
+
+<span class="sd">		sage: AS = AssociationScheme([I,A,B])</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">gens</span> <span class="o">=</span> <span class="n">gens</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="s2">&quot;A </span><span class="si">{0}</span><span class="s2">-class association scheme of order </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gens</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">gens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+<div class="viewcode-block" id="AssociationScheme.order">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.order">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the number of vertices in self.</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">				sage: X = graphs.PetersenGraph()</span>
+<span class="sd">				sage: A = X.adjacency_matrix()</span>
+<span class="sd">				sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">				sage: I = matrix.identity(X.order())</span>
+<span class="sd">				sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">				sage: AS.order()</span>
+<span class="sd">				10</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.rank">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.rank">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">rank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the number of relations in self.</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">				sage: X = graphs.PetersenGraph()</span>
+<span class="sd">				sage: A = X.adjacency_matrix()</span>
+<span class="sd">				sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">				sage: I = matrix.identity(X.order())</span>
+<span class="sd">				sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">				sage: AS.rank()</span>
+<span class="sd">				3</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gens</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.adjacency_matrices">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.adjacency_matrices">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">adjacency_matrices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the adjacency matrices of self as a list.</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.PetersenGraph()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: AS.adjacency_matrices()</span>
+<span class="sd">			[</span>
+<span class="sd">			[1 0 0 0 0 0 0 0 0 0]  [0 1 0 0 1 1 0 0 0 0]  [0 0 1 1 0 0 1 1 1 1]</span>
+<span class="sd">			[0 1 0 0 0 0 0 0 0 0]  [1 0 1 0 0 0 1 0 0 0]  [0 0 0 1 1 1 0 1 1 1]</span>
+<span class="sd">			[0 0 1 0 0 0 0 0 0 0]  [0 1 0 1 0 0 0 1 0 0]  [1 0 0 0 1 1 1 0 1 1]</span>
+<span class="sd">			[0 0 0 1 0 0 0 0 0 0]  [0 0 1 0 1 0 0 0 1 0]  [1 1 0 0 0 1 1 1 0 1]</span>
+<span class="sd">			[0 0 0 0 1 0 0 0 0 0]  [1 0 0 1 0 0 0 0 0 1]  [0 1 1 0 0 1 1 1 1 0]</span>
+<span class="sd">			[0 0 0 0 0 1 0 0 0 0]  [1 0 0 0 0 0 0 1 1 0]  [0 1 1 1 1 0 1 0 0 1]</span>
+<span class="sd">			[0 0 0 0 0 0 1 0 0 0]  [0 1 0 0 0 0 0 0 1 1]  [1 0 1 1 1 1 0 1 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 1 0 0]  [0 0 1 0 0 1 0 0 0 1]  [1 1 0 1 1 0 1 0 1 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 1 0]  [0 0 0 1 0 1 1 0 0 0]  [1 1 1 0 1 0 0 1 0 1]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 0 1], [0 0 0 0 1 0 1 1 0 0], [1 1 1 1 0 1 0 0 1 0]</span>
+<span class="sd">			]</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gens</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.base_matrix">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.base_matrix">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">base_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">		Return the base matrix of self. If :math:`(\Omega,\mathcal{R})` is an association scheme with adjacency matrices :math:`A_0 = I, A_1,\ldots, A_d`, then the *base matrix* of :math:`(\Omega,\mathcal{R})` is the matrix</span>
+<span class="sd">		:math:`0A_0 + 1A_1+2A_2+ \ldots+ dA_d`.</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.PetersenGraph()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: AS.base_matrix()</span>
+<span class="sd">			[0 1 2 2 1 1 2 2 2 2]</span>
+<span class="sd">			[1 0 1 2 2 2 1 2 2 2]</span>
+<span class="sd">			[2 1 0 1 2 2 2 1 2 2]</span>
+<span class="sd">			[2 2 1 0 1 2 2 2 1 2]</span>
+<span class="sd">			[1 2 2 1 0 2 2 2 2 1]</span>
+<span class="sd">			[1 2 2 2 2 0 2 1 1 2]</span>
+<span class="sd">			[2 1 2 2 2 2 0 2 1 1]</span>
+<span class="sd">			[2 2 1 2 2 1 2 0 2 1]</span>
+<span class="sd">			[2 2 2 1 2 1 1 2 0 2]</span>
+<span class="sd">			[2 2 2 2 1 2 1 1 2 0]</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
+		<span class="n">A</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+			<span class="n">A</span> <span class="o">+=</span> <span class="n">i</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="k">return</span> <span class="n">A</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.intersection_number">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.intersection_number">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">intersection_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the intersection number :math:`p_{ij}^k` of the association scheme ``self``.</span>
+
+
+<span class="sd">		INPUT: integers :math:`i,j,` and :math:`k` between :math:`0` and the :math:`r`, where :math:`r+1` is the rank of the association scheme.</span>
+
+<span class="sd">		OUTPUT: the value of :math:`p_{ij}^k`.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		For example, the intersection numbers of the affine polar graph :math:`VO_6^-(2)` can be computed as follows.</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">		        sage: X = graphs.AffineOrthogonalPolarGraph(6,2,sign=&quot;-&quot;)</span>
+<span class="sd">		        sage: A = X.adjacency_matrix()</span>
+<span class="sd">		        sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">		        sage: I = matrix.identity(X.order())</span>
+<span class="sd">		        sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">		        sage: AS.intersection_number(0,1,1)</span>
+<span class="sd">		        1</span>
+<span class="sd">		        sage: AS.intersection_number(1,1,1)</span>
+<span class="sd">		        10</span>
+<span class="sd">		        sage: AS.intersection_number(2,2,1)</span>
+<span class="sd">		        20</span>
+<span class="sd">		        sage: AS.intersection_number(2,2,2)</span>
+<span class="sd">		        20</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+		<span class="n">M</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_matrix</span><span class="p">()</span>
+		<span class="n">u</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+		<span class="n">check</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">l</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">M</span><span class="p">[</span><span class="n">l</span><span class="p">,</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">j</span>
+		<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">check</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.is_commutative">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_commutative">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">is_commutative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	    Return whether or not ``self`` is a commutative association scheme.</span>
+
+<span class="sd">	    The :math:`d`-class assocition scheme :math:`(\Omega,\mathcal{R})` is commutative if its intersection numbers satisfy :math:`p_{ij}^k = p_{ji}^k`, for all :math:`0\leq i,j,k\leq d`.</span>
+
+<span class="sd">	    EXAMPLE:</span>
+
+<span class="sd">	    .. code-block:: sage</span>
+
+<span class="sd">		    sage: AS = OrbitalSchemeTransitiveGroup(group_acting_on_subsets(PSL(2,7),2))</span>
+<span class="sd">		    sage: AS.is_commutative()</span>
+<span class="sd">		    False</span>
+<span class="sd">		    sage: AS = OrbitalSchemeTransitiveGroup(group_acting_on_subsets(AlternatingGroup(7),2))</span>
+<span class="sd">		    sage: AS.is_commutative()</span>
+<span class="sd">		    True</span>
+
+<span class="sd">	    &quot;&quot;&quot;</span>
+		<span class="n">key</span> <span class="o">=</span> <span class="kc">True</span>
+		<span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+			<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+				<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+					<span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">intersection_number</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">intersection_number</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+						<span class="k">return</span> <span class="kc">False</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="k">pass</span>
+		<span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.automorphism_group">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.automorphism_group">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">automorphism_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the automorphism group of ``self``, that is, the permutation group that preserves all relations of ``self``.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: K = AS.automorphism_group()</span>
+<span class="sd">			sage: K.structure_description()</span>
+<span class="sd">			&#39;(((C4 x C4) : C3) : C2) : C2&#39;</span>
+<span class="sd">			sage: K.is_transitive()</span>
+<span class="sd">			True</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
+		<span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+		<span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">automorphism_group</span><span class="p">()</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+			<span class="n">G</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">automorphism_group</span><span class="p">())</span>
+		<span class="k">return</span> <span class="n">G</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.is_schurian">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_schurian">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">is_schurian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return whether or not ``self`` is Schurian, that is, its relations are the orbitals of a transitive group</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: AS1 = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: AS1.is_schurian()</span>
+<span class="sd">			True</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS2 = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: AS2.is_schurian()</span>
+<span class="sd">			False</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">G</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">automorphism_group</span><span class="p">()</span>
+		<span class="n">S</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">stabilizer</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">domain</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+		<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">orbits</span><span class="p">())</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.character_table">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.character_table">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">character_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the first eigenmatrix of ``self``.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: AS.character_table()</span>
+<span class="sd">			[ 1  6  9]</span>
+<span class="sd">			[ 1  2 -3]</span>
+<span class="sd">			[ 1 -2  1]</span>
+<span class="sd">			sage: AS1 = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: AS1.character_table()</span>
+<span class="sd">			[ 1  6  6  3]</span>
+<span class="sd">			[ 1  2 -2 -1]</span>
+<span class="sd">			[ 1 -2 -2  3]</span>
+<span class="sd">			[ 1 -2  2 -1]</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_commutative</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+			<span class="k">return</span> <span class="s2">&quot;Association Scheme not commutative&quot;</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">table</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="n">T</span> <span class="o">=</span> <span class="n">common_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">())</span> <span class="c1">#can contain a matrix of zero</span>
+			<span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+				<span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+				<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+						<span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+				<span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">table</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AssociationScheme.P_matrix">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.P_matrix">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">P_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the first eigenmatrix of ``self``. This is the same as `character_table()`.&quot;&quot;&quot;</span>
+
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_commutative</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+			<span class="k">return</span> <span class="s2">&quot;Error: Association Scheme not commutative&quot;</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">character_table</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.Q_matrix">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.Q_matrix">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">Q_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the first eigenmatrix of ``self``.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: AS.Q_matrix()</span>
+<span class="sd">			[ 1  6  9]</span>
+<span class="sd">			[ 1  2 -3]</span>
+<span class="sd">			[ 1 -2  1]</span>
+<span class="sd">			sage: AS1 = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: AS1.Q_matrix()</span>
+<span class="sd">			[ 1  6  3  6]</span>
+<span class="sd">			[ 1  2 -1 -2]</span>
+<span class="sd">			[ 1 -2 -1  2]</span>
+<span class="sd">			[ 1 -2  3 -2]</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_commutative</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+			<span class="k">return</span> <span class="s2">&quot;Error: Association Scheme not commutative&quot;</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">character_table</span><span class="p">()</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()</span><span class="o">*</span><span class="n">P</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.dimension_of_t_zero">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.dimension_of_t_zero">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">dimension_of_t_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">matrix</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the dimension of the subspace :math:`T_0` of the Terwilliger algebra with respect to any vertex.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: AS = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: AS.dimension_of_t_zero()</span>
+<span class="sd">			31</span>
+<span class="sd">			sage: AS.dimension_of_t_zero(matrix=True)</span>
+<span class="sd">			[1 1 1 1]</span>
+<span class="sd">			[1 4 3 2]</span>
+<span class="sd">			[1 3 4 2]</span>
+<span class="sd">			[1 2 2 2]</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="n">matrix</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+			<span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+			<span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+			<span class="n">T</span> <span class="o">=</span> <span class="n">Tuples</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>
+				<span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="n">x</span>
+				<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">intersection_number</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+					<span class="n">d</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">return</span> <span class="n">d</span>
+		<span class="k">elif</span> <span class="n">matrix</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+			<span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+			<span class="n">mat</span> <span class="o">=</span> <span class="n">zero_matrix</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+			<span class="n">T</span> <span class="o">=</span> <span class="n">Tuples</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>
+				<span class="n">i</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="n">x</span>
+				<span class="n">check</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">j</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">intersection_number</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>  <span class="o">!=</span> <span class="mi">0</span>
+				<span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">check</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">))))</span>
+			<span class="k">return</span> <span class="n">mat</span></div>
+
+
+<div class="viewcode-block" id="AssociationScheme.dimension_of_centralizer_algebra">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.dimension_of_centralizer_algebra">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">dimension_of_centralizer_algebra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">matrix</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">		Return the dimension of the centralizer algebra of the stabilizer of `vertex` in the automorphism group of ``self`` if ``matrix=False``. If ``matrix=True``, then it returns the block dimension decomposition of the centralizer algebra.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: AS = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: AS.dimension_of_t_zero()</span>
+<span class="sd">			sage: AS.dimension_of_centralizer_algebra(1)</span>
+<span class="sd">			31</span>
+<span class="sd">			sage: AS.dimension_of_centralizer_algebra(1,matrix=True)</span>
+<span class="sd">			[1 1 1 1]</span>
+<span class="sd">			[1 4 2 3]</span>
+<span class="sd">			[1 2 2 2]</span>
+<span class="sd">			[1 3 2 4]</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="n">matrix</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+			<span class="n">G</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">automorphism_group</span><span class="p">()</span>
+			<span class="n">S</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">stabilizer</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+			<span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+			<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">orbits</span><span class="p">():</span>
+				<span class="n">K</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">stabilizer</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+				<span class="n">d</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">orbits</span><span class="p">())</span>
+			<span class="k">return</span> <span class="n">d</span>
+		<span class="k">elif</span> <span class="n">matrix</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+			<span class="n">G</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">automorphism_group</span><span class="p">()</span>
+			<span class="n">S</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">stabilizer</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">domain</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+			<span class="n">L</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">orbits</span><span class="p">())</span>
+			<span class="n">mat</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+				<span class="n">K</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">stabilizer</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+				<span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+				<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">K</span><span class="o">.</span><span class="n">orbits</span><span class="p">():</span>
+					<span class="k">for</span> <span class="n">Z</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+						<span class="k">if</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">Z</span><span class="p">:</span>
+							<span class="n">j</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+							<span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+						<span class="k">else</span><span class="p">:</span>
+							<span class="k">pass</span>
+				<span class="n">mat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AssociationScheme.ratio_bound">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.ratio_bound">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">ratio_bound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the value of Hoffman&#39;s ratio bound for the i-th graph, if it is symmetric.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: AS = JohnsonScheme(8,3)</span>
+<span class="sd">			sage: AS.ratio_bound(0)</span>
+<span class="sd">			&#39;... the index needs to be larger than 0&#39;</span>
+<span class="sd">			sage: AS.ratio_bound(1)</span>
+<span class="sd">			28/3</span>
+<span class="sd">			sage: AS.ratio_bound(2)</span>
+<span class="sd">			8</span>
+<span class="sd">			sage: AS.ratio_bound(3)</span>
+<span class="sd">			21</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span>
+		<span class="k">if</span> <span class="n">A</span> <span class="o">==</span> <span class="n">matrix</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()):</span>
+			<span class="k">return</span> <span class="s2">&quot;... the index needs to be larger than 0&quot;</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">A</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+				<span class="k">return</span> <span class="s2">&quot;... the corresponding relation is not symmetric&quot;</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">X</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+				<span class="n">Ev</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">spectrum</span><span class="p">())</span>
+				<span class="k">return</span> <span class="n">X</span><span class="o">.</span><span class="n">order</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nb">max</span><span class="p">(</span><span class="n">Ev</span><span class="p">)</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="n">Ev</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.TerwilligerAlgebra">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.TerwilligerAlgebra">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">TerwilligerAlgebra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">ring</span> <span class="o">=</span> <span class="n">CC</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the Terwilliger algebra, over `ring`, of `self` with respect to `vertex`.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: AS = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: T = AS.TerwilligerAlgebra(1,ring=CC)</span>
+<span class="sd">			sage: T</span>
+<span class="sd">			Free module generated by {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30} over Complex Field with 53 bits of precision</span>
+<span class="sd">			sage: T.dimension()</span>
+<span class="sd">			31</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
+		<span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="n">matrix</span><span class="o">.</span><span class="n">diagonal</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="k">for</span> <span class="n">A</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>
+		<span class="n">gens</span> <span class="o">=</span> <span class="n">L</span> <span class="o">+</span> <span class="n">D</span>
+		<span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+		<span class="n">M</span> <span class="o">=</span> <span class="n">MatrixSpace</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+		<span class="n">T</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">subalgebra</span><span class="p">(</span><span class="n">gens</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">T</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.graphs_in_scheme">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.graphs_in_scheme">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">graphs_in_scheme</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">digraphs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">		Return the graphs corresponding to symmetric classes of ``self`` if ``digraphs = False``, otherwise, all digraphs of the association scheme.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: AS = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: AS.graphs_in_scheme()</span>
+<span class="sd">			[Graph on 16 vertices, Graph on 16 vertices, Graph on 16 vertices]</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
+		<span class="k">if</span> <span class="n">digraphs</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+			<span class="n">grphs</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="k">for</span> <span class="n">A</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+				<span class="k">if</span> <span class="n">A</span> <span class="o">!=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()):</span>
+					<span class="k">if</span> <span class="n">A</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">():</span>
+						<span class="n">grphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Graph</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">vertex_labels</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">])))</span>
+			<span class="k">return</span> <span class="n">grphs</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">grphs</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="k">for</span> <span class="n">A</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+				<span class="k">if</span> <span class="n">A</span> <span class="o">!=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">())</span> <span class="ow">and</span> <span class="n">A</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">():</span>
+					<span class="n">grphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Graph</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">vertex_labels</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">])))</span>
+				<span class="k">if</span>  <span class="n">A</span> <span class="o">!=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">())</span> <span class="ow">and</span> <span class="n">A</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+					<span class="n">grphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">vertex_labels</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">])))</span>
+			<span class="k">return</span> <span class="n">grphs</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.is_formally_self_dual">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_formally_self_dual">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">is_formally_self_dual</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return whether `self` is formally self dual. That is, whether $Q = \overline{P}$.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: AS1 = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: AS.is_formally_self_dual()</span>
+<span class="sd">			True</span>
+<span class="sd">			sage: AS1.is_formally_self_dual()</span>
+<span class="sd">			False</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">P_matrix</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">conjugate_transpose</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.krein_parameters">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.krein_parameters">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">krein_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the value of the Krein parameter :math:`q_{ij}^k`.</span>
+
+<span class="sd">		INPUT: integers :math:`i,j,` and :math:`k` between :math:`0` and the :math:`r`, where :math:`r+1` is the rank of the association scheme.</span>
+
+<span class="sd">		OUTPUT: the value of :math:`q_{ij}^k`.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: AS = HammingScheme(5,2)</span>
+<span class="sd">			sage: AS.krein_parameters(1,1,1)</span>
+<span class="sd">			0</span>
+<span class="sd">			sage: AS.krein_parameters(2,2,2)</span>
+<span class="sd">			0</span>
+<span class="sd">			sage: AS.krein_parameters(2,2,1)</span>
+<span class="sd">			0</span>
+<span class="sd">			sage: AS.krein_parameters(2,2,0)</span>
+<span class="sd">			5</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+
+		<span class="n">T</span> <span class="o">=</span> <span class="n">common_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">())</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">Schur_multiplication</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">ring</span><span class="p">)))</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="AssociationScheme.adjacency_algebra">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.adjacency_algebra">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">adjacency_algebra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ring</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the adjacency algebra of `self` over the commutative ring ``ring``. That is, the algebra generated by the adjacency matrices, over the commutative algebra ``ring``.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: AS.adjacency_algebra(ring=CC)</span>
+<span class="sd">			Free module generated by {0, 1, 2} over Complex Field with 53 bits of precision</span>
+<span class="sd">			sage: AS.adjacency_algebra(ring=ZZ)</span>
+<span class="sd">			Free module generated by {0, 1, 2} over Integer Ring</span>
+<span class="sd">			sage: AS.adjacency_algebra(ring=QQ)</span>
+<span class="sd">			Free module generated by {0, 1, 2} over Rational Field</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
+		<span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+		<span class="n">M</span> <span class="o">=</span> <span class="n">MatrixSpace</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+		<span class="n">B</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">subalgebra</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">B</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.bose_mesner_algebra">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.bose_mesner_algebra">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">bose_mesner_algebra</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the Bose-Mesner algebra of the association scheme. See also adjacency_algebra().&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_algebra</span><span class="p">(</span><span class="n">CC</span><span class="p">)</span></div>
+
+	<span class="c1">#def is_coherent_configuration(self):</span>
+<div class="viewcode-block" id="AssociationScheme.is_triply_regular">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_triply_regular">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">is_triply_regular</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return whether or not the association scheme is triply regular.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.HigmanSimsGraph()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
+<span class="sd">			sage: AS.is_triply_regular()</span>
+<span class="sd">			True</span>
+
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">TerwilligerAlgebra</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dimension</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimension_of_t_zero</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="AssociationScheme.is_AssociationScheme">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_AssociationScheme">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">is_AssociationScheme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return whether ``self`` is an association scheme.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: AS = JohnsonScheme(7,3)</span>
+<span class="sd">			sage: I,A,B,C = AS.adjacency_matrices()</span>
+<span class="sd">			sage: AS1 = AssociationScheme([I,A+B+C])</span>
+<span class="sd">			sage: AS1.is_AssociationScheme()</span>
+<span class="sd">			True</span>
+<span class="sd">			sage: AS2 = AssociationScheme([I,A+B])</span>
+<span class="sd">			sage: AS2.is_AssociationScheme()</span>
+<span class="sd">			False</span>
+<span class="sd">			sage: AS3 = AssociationScheme([I,A+B,C])</span>
+<span class="sd">			sage: AS3.is_AssociationScheme()</span>
+<span class="sd">			False</span>
+
+
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
+		<span class="n">r</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">!=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()):</span>
+			<span class="c1">#print (&quot;matrices not summing to the all-ones matrix ...&quot;)</span>
+			<span class="k">return</span> <span class="kc">False</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+				<span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+					<span class="k">pass</span>
+				<span class="k">else</span><span class="p">:</span>
+					<span class="c1">#print (&quot;matrices not closed under transposition ...&quot;)</span>
+					<span class="k">return</span> <span class="kc">False</span>
+			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+				<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+					<span class="n">A</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+					<span class="n">B</span> <span class="o">=</span> <span class="n">zero_matrix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">())</span>
+					<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+						<span class="n">B</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">intersection_number</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+					<span class="k">if</span> <span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">:</span>
+						<span class="k">pass</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="c1">#print (&quot;product of certain matrices not in the algebra ...&quot;)</span>
+						<span class="k">return</span> <span class="kc">False</span>
+		<span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="AssociationScheme.fusion">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.fusion">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">fusion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">return_scheme</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return whether the partition ``P`` of the vertices is an association scheme.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: X = graphs.ShrikhandeGraph()</span>
+<span class="sd">			sage: G = X.automorphism_group()</span>
+<span class="sd">			sage: G = PermutationGroup(G.gens())</span>
+<span class="sd">			sage: AS = OrbitalSchemeTransitiveGroup(G)</span>
+<span class="sd">			sage: L = AS.adjacency_matrices()</span>
+<span class="sd">			sage: L[3]</span>
+<span class="sd">			[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]</span>
+<span class="sd">			[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1]</span>
+<span class="sd">			sage: AS.fusion([[0],[1,2,3]])</span>
+<span class="sd">			False</span>
+<span class="sd">			sage: AS.fusion([[3],[0,1,2]])</span>
+<span class="sd">			True</span>
+<span class="sd">			sage: AS.fusion([[3],[0,1,2]],return_scheme=True)</span>
+<span class="sd">			(True, &lt;__main__.AssociationScheme object at 0x720021e86890&gt;)</span>
+<span class="sd">			sage: AS.fusion([[3],[0,1],[2]],return_scheme=True)</span>
+<span class="sd">			(True, &lt;__main__.AssociationScheme object at 0x720022477e70&gt;)</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">V</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
+		<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
+			<span class="n">B</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+			<span class="n">V</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+		<span class="n">AS</span> <span class="o">=</span> <span class="n">AssociationScheme</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">AS</span><span class="o">.</span><span class="n">is_AssociationScheme</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+			<span class="k">return</span> <span class="kc">False</span>
+		<span class="k">elif</span> <span class="n">AS</span><span class="o">.</span><span class="n">is_AssociationScheme</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">return_scheme</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+				<span class="k">return</span> <span class="kc">True</span>
+			<span class="k">elif</span> <span class="n">return_scheme</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+				<span class="k">return</span> <span class="kc">True</span><span class="p">,</span><span class="n">AS</span></div>
+
+
+<div class="viewcode-block" id="AssociationScheme.inner_distribution">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.inner_distribution">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">inner_distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+		<span class="n">v</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="n">V</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">())</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">V</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Y</span><span class="p">:</span>
+				<span class="n">v</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">v</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+		<span class="n">v</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
+		<span class="n">inner_dist</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="o">.</span><span class="n">transpose</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">())]</span>
+		<span class="k">return</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">inner_dist</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="common_eigenvectors">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.common_eigenvectors">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">common_eigenvectors</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+	<span class="n">eigenspaces_blocks</span> <span class="o">=</span> <span class="n">spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
+		<span class="n">A</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="n">new_eigenspaces_blocks</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">P</span><span class="p">)</span> <span class="ow">in</span> <span class="n">eigenspaces_blocks</span><span class="p">:</span>
+			<span class="n">B</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">conjugate_transpose</span><span class="p">()</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">P</span>
+			<span class="k">if</span> <span class="n">B</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+				<span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">eigenvalues</span><span class="p">()):</span>
+					<span class="k">if</span> <span class="n">ev</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+						<span class="k">break</span>
+				<span class="n">new_eigenspaces_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="p">[</span><span class="n">ev</span><span class="p">],</span><span class="n">P</span><span class="p">))</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">Ev</span> <span class="o">=</span> <span class="n">spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+				<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">Ev</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+					<span class="n">y</span><span class="p">,</span><span class="n">C</span> <span class="o">=</span> <span class="n">Ev</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+					<span class="n">new_eigenspaces_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="n">P</span><span class="o">*</span><span class="n">C</span><span class="p">))</span>
+				<span class="k">else</span><span class="p">:</span>
+					<span class="k">for</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">C</span><span class="p">)</span> <span class="ow">in</span> <span class="n">Ev</span><span class="p">:</span>
+						<span class="k">if</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+							<span class="n">new_eigenspaces_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="n">P</span><span class="o">*</span><span class="n">C</span><span class="p">))</span>
+						<span class="k">elif</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">A</span> <span class="o">==</span> <span class="n">B</span><span class="p">:</span>
+							<span class="n">new_eigenspaces_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="n">P</span><span class="o">*</span><span class="n">C</span><span class="p">))</span>
+		<span class="n">eigenspaces_blocks</span> <span class="o">=</span> <span class="n">new_eigenspaces_blocks</span>
+		<span class="n">common_eigenspaces</span> <span class="o">=</span> <span class="p">[]</span>
+		<span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">eigenspaces_blocks</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">zero_matrix</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]):</span>
+				<span class="k">pass</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">common_eigenspaces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">common_eigenspaces</span></div>
+
+
+
+<div class="viewcode-block" id="spectral_decomposition_of_matrix">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.spectral_decomposition_of_matrix">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+	<span class="n">E</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">right_eigenspaces</span><span class="p">()</span>
+	<span class="n">eigenvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">))]</span>
+	<span class="n">mats</span> <span class="o">=</span> <span class="p">[</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">matrix</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">))]</span>
+	<span class="n">orthogonal_mats</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">gram_schmidt</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mats</span><span class="p">]</span>
+	<span class="n">spectral_eigenspaces</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">orthogonal_mats</span><span class="p">)):</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="n">orthogonal_mats</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="n">r</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">rows</span><span class="p">()</span>
+		<span class="n">B</span> <span class="o">=</span> <span class="n">zero_matrix</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+		<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+			<span class="n">a</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+			<span class="n">B</span> <span class="o">+=</span> <span class="n">a</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">conjugate_transpose</span><span class="p">())</span><span class="o">.</span><span class="n">list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">spectral_eigenspaces</span><span class="o">.</span><span class="n">append</span><span class="p">(([</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span><span class="n">B</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">spectral_eigenspaces</span></div>
+
+
+<div class="viewcode-block" id="Schur_multiplication">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.Schur_multiplication">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">Schur_multiplication</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">ring</span> <span class="o">=</span> <span class="n">QQ</span><span class="p">):</span>
+	<span class="n">C</span> <span class="o">=</span> <span class="n">zero_matrix</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]):</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]):</span>
+			<span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+	<span class="k">return</span> <span class="n">C</span></div>
+
+
+
+<span class="c1">#def</span>
+
+<div class="viewcode-block" id="base_matrix_to_adjacency_matrices">
+<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.base_matrix_to_adjacency_matrices">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">base_matrix_to_adjacency_matrices</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+	<span class="n">d</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+	<span class="n">adjacency_matrices</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+		<span class="n">A</span> <span class="o">=</span> <span class="n">zero_matrix</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+		<span class="n">T</span> <span class="o">=</span> <span class="n">Tuples</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span><span class="mi">2</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">T</span><span class="p">:</span>
+			<span class="n">s</span><span class="p">,</span><span class="n">t</span> <span class="o">=</span> <span class="n">x</span>
+			<span class="k">if</span> <span class="n">M</span><span class="p">[</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+				<span class="n">A</span><span class="p">[</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+		<span class="n">adjacency_matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">adjacency_matrices</span></div>
+
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Sarobidy Razafimahatratra
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

@@ -1,3 +1,5 @@
+from sage.all import load
+
 BASE_URL = "https://raw.githubusercontent.com/sarobidy19/association-schemes/refs/heads/main/AssociationSchemes/"
 
 modules_to_load = [
