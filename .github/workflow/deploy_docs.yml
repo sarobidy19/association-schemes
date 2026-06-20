@@ -3,7 +3,12 @@ name: Deploy Sphinx Docs to GitHub Pages
 on:
   push:
     branches:
-      - main # Change to master if your default branch is named master
+      - main
+
+# This rule cancels older, frozen builds automatically
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -18,18 +23,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-python: '3.11'
+          python-version: '3.11' # Fixed typo here
 
       - name: Install Dependencies
         run: |
-          pip install sphinx sphinx-rtd-theme # Add any other documentation themes/plugins here
+          python -m pip install --upgrade pip
+          pip install sphinx sphinx-rtd-theme
 
       - name: Build HTML Docs
         run: |
-          sphinx-build -b html docs/source docs/build/html # Adjust path to your source and build folders
+          sphinx-build -b html docs/source docs/build/html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_build/html
+          publish_dir: ./docs/build/html
