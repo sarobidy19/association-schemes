@@ -249,74 +249,31 @@
 <dt class="sig sig-object py" id="AssociationSchemes.permutation_group.PermutationGroup">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">AssociationSchemes.permutation_group.</span></span><span class="sig-name descname"><span class="pre">PermutationGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canonicalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/permutation_group.html#PermutationGroup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.permutation_group.PermutationGroup" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PermutationGroup_generic</span></code></p>
-<p>Initialize <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
-<p>INPUT:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">gens</span></code> – list of generators (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gap_group</span></code> – a gap or libgap permutation group, or a string
-defining one (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">canonicalize</span></code> – boolean (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>); if <code class="docutils literal notranslate"><span class="pre">True</span></code>,
-sort generators and remove duplicates</p></li>
-</ul>
-<p>OUTPUT: a permutation group</p>
-<p>EXAMPLES:</p>
-<p>We explicitly construct the alternating group on four
-elements:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">A4</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">([[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)],[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)]]);</span> <span class="n">A4</span>
-<span class="n">Permutation</span> <span class="n">Group</span> <span class="k">with</span> <span class="n">generators</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">A4</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)],[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)]]);</span> <span class="n">A4</span>
-<span class="n">Permutation</span> <span class="n">Group</span> <span class="k">with</span> <span class="n">generators</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">A4</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-<span class="n">Subgroup</span> <span class="n">generated</span> <span class="n">by</span> <span class="p">[()]</span> <span class="n">of</span> <span class="p">(</span><span class="n">Permutation</span> <span class="n">Group</span> <span class="k">with</span> <span class="n">generators</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)])</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">A4</span><span class="o">.</span><span class="n">category</span><span class="p">()</span>
-<span class="n">Category</span> <span class="n">of</span> <span class="n">finite</span> <span class="n">enumerated</span> <span class="n">permutation</span> <span class="n">groups</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">TestSuite</span><span class="p">(</span><span class="n">A4</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>TESTS:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">TestSuite</span><span class="p">(</span><span class="n">PermutationGroup</span><span class="p">([[]]))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">TestSuite</span><span class="p">(</span><span class="n">PermutationGroup</span><span class="p">([]))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">TestSuite</span><span class="p">(</span><span class="n">PermutationGroup</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)]))</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Check that <a href="#id1"><span class="problematic" id="id2">:issue:`37590`</span></a> is fixed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">lgg</span> <span class="o">=</span> <span class="n">libgap</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;Group((1,2,3,4,5),(4,5,6))&quot;</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">P</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">gap_group</span><span class="o">=</span><span class="n">lgg</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">h</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">hom</span><span class="p">(</span><span class="n">codomain</span><span class="o">=</span><span class="n">P</span><span class="p">,</span> <span class="n">im_gens</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">h</span>
-<span class="n">Group</span> <span class="n">endomorphism</span> <span class="n">of</span> <span class="n">Permutation</span> <span class="n">Group</span> <span class="k">with</span> <span class="n">generators</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">gens</span><span class="p">()</span>
-<span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">gap</span><span class="p">()</span><span class="o">.</span><span class="n">GeneratorsOfGroup</span><span class="p">()</span>
-<span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">]</span>
-
-<span class="n">sage</span><span class="p">:</span> <span class="n">gg</span> <span class="o">=</span> <span class="n">gap</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;Group((1,2,3,4,5),(4,5,6))&quot;</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">P</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">gap_group</span><span class="o">=</span><span class="n">gg</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">gens</span><span class="p">()</span>
-<span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">h</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">hom</span><span class="p">(</span><span class="n">codomain</span><span class="o">=</span><span class="n">P</span><span class="p">,</span> <span class="n">im_gens</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">h</span>
-<span class="n">Group</span> <span class="n">endomorphism</span> <span class="n">of</span> <span class="n">Permutation</span> <span class="n">Group</span> <span class="k">with</span> <span class="n">generators</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
-</pre></div>
-</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="AssociationSchemes.permutation_group.PermutationGroup.action_on_subsets">
 <span class="sig-name descname"><span class="pre">action_on_subsets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/permutation_group.html#PermutationGroup.action_on_subsets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.permutation_group.PermutationGroup.action_on_subsets" title="Link to this definition">¶</a></dt>
 <dd><p>Return the action of <code class="docutils literal notranslate"><span class="pre">self</span></code> on the <code class="docutils literal notranslate"><span class="pre">k</span></code>-sets of <code class="docutils literal notranslate"><span class="pre">self.domain()</span></code>.</p>
 <p>EXAMPLE:</p>
-<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">G</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">SymmetricGroup</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">action_on_subsets</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">is_transitive</span><span class="p">()</span>
+<span class="kc">True</span>
 </pre></div>
 </div>
-<p>sage: G = PermutationGroup(SymmetricGroup(5).gens())
-sage: K = G.action_on_subsets(2)
-sage: K.is_transitive()
-True</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AssociationSchemes.permutation_group.PermutationGroup.group_action">
 <span class="sig-name descname"><span class="pre">group_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">H</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/permutation_group.html#PermutationGroup.group_action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.permutation_group.PermutationGroup.group_action" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the action of <code class="docutils literal notranslate"><span class="pre">self</span></code> on the cosets of the subgroup <code class="docutils literal notranslate"><span class="pre">H</span></code> of <code class="docutils literal notranslate"><span class="pre">self</span></code> by right multiplication.</p>
+<p>EXAMPLE:</p>
+<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">G</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">SymmetricGroup</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">action_on_subsets</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">is_transitive</span><span class="p">()</span>
+<span class="kc">True</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AssociationSchemes.permutation_group.PermutationGroup.is_core_free">

@@ -239,6 +239,7 @@
           <h1>Source code for AssociationSchemes.permutation_group</h1><div class="highlight"><pre>
 <span></span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sage.groups.perm_gps.permgroup</span><span class="w"> </span><span class="kn">import</span> <span class="n">PermutationGroup_generic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sage.groups.perm_gps.permgroup</span><span class="w"> </span><span class="kn">import</span> <span class="n">PermutationGroup_action</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sage.graphs.digraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiGraph</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sage.combinat.subset</span><span class="w"> </span><span class="kn">import</span> <span class="n">Subsets</span>
 
@@ -296,11 +297,10 @@
 
 <span class="sd">		.. code-block:: sage</span>
 
-<span class="sd">		sage: G = PermutationGroup(SymmetricGroup(5).gens())</span>
-<span class="sd">		sage: K = G.action_on_subsets(2)</span>
-<span class="sd">		sage: K.is_transitive()</span>
-<span class="sd">		True</span>
-
+<span class="sd">			sage: G = PermutationGroup(SymmetricGroup(5).gens())</span>
+<span class="sd">			sage: K = G.action_on_subsets(2)</span>
+<span class="sd">			sage: K.is_transitive()</span>
+<span class="sd">			True</span>
 
 <span class="sd">		&quot;&quot;&quot;</span>
 		<span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">()</span>
@@ -321,6 +321,19 @@
 <div class="viewcode-block" id="PermutationGroup.group_action">
 <a class="viewcode-back" href="../../AssociationSchemes.permutation_group.html#AssociationSchemes.permutation_group.PermutationGroup.group_action">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">group_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">H</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the action of ``self`` on the cosets of the subgroup ``H`` of ``self`` by right multiplication.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: G = PermutationGroup(SymmetricGroup(5).gens())</span>
+<span class="sd">			sage: K = G.action_on_subsets(2)</span>
+<span class="sd">			sage: K.is_transitive()</span>
+<span class="sd">			True</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
 		<span class="n">C</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosets</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
 		<span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">C</span><span class="p">]</span>
 		<span class="n">action_on_object</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">g</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">g</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>

@@ -1,5 +1,6 @@
 
 from sage.groups.perm_gps.permgroup import PermutationGroup_generic
+from sage.groups.perm_gps.permgroup import PermutationGroup_action
 from sage.graphs.digraph import DiGraph
 from sage.combinat.subset import Subsets
 
@@ -47,11 +48,10 @@ class PermutationGroup(PermutationGroup_generic):
 
 		.. code-block:: sage
 
-		sage: G = PermutationGroup(SymmetricGroup(5).gens())
-		sage: K = G.action_on_subsets(2)
-		sage: K.is_transitive()
-		True
-
+			sage: G = PermutationGroup(SymmetricGroup(5).gens())
+			sage: K = G.action_on_subsets(2)
+			sage: K.is_transitive()
+			True
 
 		"""
 		n = self.degree()
@@ -66,6 +66,19 @@ class PermutationGroup(PermutationGroup_generic):
 		return len(self.stabilizer(self.domain()[0]).orbits())
 
 	def group_action(self,H):
+		"""
+		Return the action of ``self`` on the cosets of the subgroup ``H`` of ``self`` by right multiplication.
+
+		EXAMPLE:
+
+		.. code-block:: sage
+
+			sage: G = PermutationGroup(SymmetricGroup(5).gens())
+			sage: K = G.action_on_subsets(2)
+			sage: K.is_transitive()
+			True
+
+		"""
 		C = self.cosets(H,side="left")
 		D = [frozenset(x) for x in C]
 		action_on_object = lambda g,x: frozenset([g*y for y in x])
