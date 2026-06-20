@@ -16,6 +16,7 @@ author = 'Sarobidy Razafimahatratra'
 extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
+    'sphinx.ext.githubpages',
     'sphinx.ext.mathjax']
 
 templates_path = ['_templates']
