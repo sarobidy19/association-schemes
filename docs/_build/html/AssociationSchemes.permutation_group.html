@@ -267,10 +267,17 @@
 <span class="sig-name descname"><span class="pre">group_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">H</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/permutation_group.html#PermutationGroup.group_action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.permutation_group.PermutationGroup.group_action" title="Link to this definition">¶</a></dt>
 <dd><p>Return the action of <code class="docutils literal notranslate"><span class="pre">self</span></code> on the cosets of the subgroup <code class="docutils literal notranslate"><span class="pre">H</span></code> of <code class="docutils literal notranslate"><span class="pre">self</span></code> by right multiplication.</p>
 <p>EXAMPLE:</p>
-<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">G</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">SymmetricGroup</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">action_on_subsets</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">is_transitive</span><span class="p">()</span>
-<span class="kc">True</span>
+<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">U</span> <span class="o">=</span> <span class="n">PSL</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">G</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">M</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">conjugacy_classes_subgroups</span><span class="p">()</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">H</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">H</span><span class="o">.</span><span class="n">structure_description</span><span class="p">()</span>
+<span class="s1">&#39;C4&#39;</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">group_action</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">structure_description</span><span class="p">()</span>
+<span class="s1">&#39;PSL(3,2)&#39;</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">stabilizer</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">domain</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">structure_description</span><span class="p">()</span>
+<span class="s1">&#39;C4&#39;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -323,7 +330,17 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="AssociationSchemes.permutation_group.PermutationGroup.rank_of_group">
 <span class="sig-name descname"><span class="pre">rank_of_group</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/permutation_group.html#PermutationGroup.rank_of_group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.permutation_group.PermutationGroup.rank_of_group" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the rank of the permutation group <code class="docutils literal notranslate"><span class="pre">self</span></code> in its action on <code class="docutils literal notranslate"><span class="pre">self.domain()</span></code>.</p>
+<p>EXAMPLE:</p>
+<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">G</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">SymmetricGroup</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">G</span><span class="o">.</span><span class="n">rank_of_group</span><span class="p">()</span>
+<span class="mi">2</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">action_on_subsets</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.</span><span class="n">rank_of_group</span><span class="p">()</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="AssociationSchemes.permutation_group.PermutationGroup.setwise_stabilizer">

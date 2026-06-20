@@ -308,13 +308,28 @@
 		<span class="n">G</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subgroup</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
 		<span class="n">action_on_subsets</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">h</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">h</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span>
 		<span class="n">V</span> <span class="o">=</span> <span class="n">Subsets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">(),</span><span class="n">k</span><span class="p">)</span>
-		<span class="n">H</span> <span class="o">=</span> <span class="n">sage</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">perm_gps</span><span class="o">.</span><span class="n">permgroup</span><span class="o">.</span><span class="n">PermutationGroup_action</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">action</span> <span class="o">=</span> <span class="n">action_on_subsets</span><span class="p">,</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">V</span><span class="p">])</span>
+		<span class="n">H</span> <span class="o">=</span> <span class="n">PermutationGroup_action</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">action</span> <span class="o">=</span> <span class="n">action_on_subsets</span><span class="p">,</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">V</span><span class="p">])</span>
 		<span class="k">return</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">minimal_generating_set</span><span class="p">())</span></div>
 
 
 <div class="viewcode-block" id="PermutationGroup.rank_of_group">
 <a class="viewcode-back" href="../../AssociationSchemes.permutation_group.html#AssociationSchemes.permutation_group.PermutationGroup.rank_of_group">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">rank_of_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the rank of the permutation group ``self`` in its action on ``self.domain()``.</span>
+
+<span class="sd">		EXAMPLE:</span>
+
+<span class="sd">		.. code-block:: sage</span>
+
+<span class="sd">			sage: G = PermutationGroup(SymmetricGroup(5).gens())</span>
+<span class="sd">			sage: G.rank_of_group()</span>
+<span class="sd">			2</span>
+<span class="sd">			sage: K = G.action_on_subsets(2)</span>
+<span class="sd">			sage: K.rank_of_group()</span>
+<span class="sd">			3</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
 		<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stabilizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">orbits</span><span class="p">())</span></div>
 
 
@@ -328,10 +343,17 @@
 
 <span class="sd">		.. code-block:: sage</span>
 
-<span class="sd">			sage: G = PermutationGroup(SymmetricGroup(5).gens())</span>
-<span class="sd">			sage: K = G.action_on_subsets(2)</span>
-<span class="sd">			sage: K.is_transitive()</span>
-<span class="sd">			True</span>
+<span class="sd">			sage: U = PSL(2,7)</span>
+<span class="sd">			sage: G = PermutationGroup(U.gens())</span>
+<span class="sd">			sage: M = G.conjugacy_classes_subgroups()</span>
+<span class="sd">			sage: H = M[5]</span>
+<span class="sd">			sage: H.structure_description()</span>
+<span class="sd">			&#39;C4&#39;</span>
+<span class="sd">			sage: K = G.group_action(H)</span>
+<span class="sd">			sage: K.structure_description()</span>
+<span class="sd">			&#39;PSL(3,2)&#39;</span>
+<span class="sd">			sage: K.stabilizer(K.domain()[0]).structure_description()</span>
+<span class="sd">			&#39;C4&#39;</span>
 
 <span class="sd">		&quot;&quot;&quot;</span>
 		<span class="n">C</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosets</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>

@@ -59,10 +59,25 @@ class PermutationGroup(PermutationGroup_generic):
 		G = self.subgroup(S)
 		action_on_subsets = lambda h,y: frozenset([h(z) for z in y])
 		V = Subsets(self.domain(),k)
-		H = sage.groups.perm_gps.permgroup.PermutationGroup_action(S, action = action_on_subsets,domain=[frozenset(v) for v in V])
+		H = PermutationGroup_action(S, action = action_on_subsets,domain=[frozenset(v) for v in V])
 		return PermutationGroup(H.minimal_generating_set())
 
 	def rank_of_group(self):
+		"""
+		Return the rank of the permutation group ``self`` in its action on ``self.domain()``.
+
+		EXAMPLE:
+
+		.. code-block:: sage
+
+			sage: G = PermutationGroup(SymmetricGroup(5).gens())
+			sage: G.rank_of_group()
+			2
+			sage: K = G.action_on_subsets(2)
+			sage: K.rank_of_group()
+			3
+
+		"""
 		return len(self.stabilizer(self.domain()[0]).orbits())
 
 	def group_action(self,H):
@@ -73,10 +88,17 @@ class PermutationGroup(PermutationGroup_generic):
 
 		.. code-block:: sage
 
-			sage: G = PermutationGroup(SymmetricGroup(5).gens())
-			sage: K = G.action_on_subsets(2)
-			sage: K.is_transitive()
-			True
+			sage: U = PSL(2,7)
+			sage: G = PermutationGroup(U.gens())
+			sage: M = G.conjugacy_classes_subgroups()
+			sage: H = M[5]
+			sage: H.structure_description()
+			'C4'
+			sage: K = G.group_action(H)
+			sage: K.structure_description()
+			'PSL(3,2)'
+			sage: K.stabilizer(K.domain()[0]).structure_description()
+			'C4'
 
 		"""
 		C = self.cosets(H,side="left")
