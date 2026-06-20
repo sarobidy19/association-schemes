@@ -247,8 +247,25 @@
 <span id="associationschemes-generic-schemes-module"></span><h1>AssociationSchemes.generic_schemes module<a class="headerlink" href="#module-AssociationSchemes.generic_schemes" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="AssociationSchemes.generic_schemes.AssociationScheme">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">AssociationSchemes.generic_schemes.</span></span><span class="sig-name descname"><span class="pre">AssociationScheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gens</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#AssociationScheme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.AssociationScheme" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">AssociationSchemes.generic_schemes.</span></span><span class="sig-name descname"><span class="pre">AssociationScheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adjacency_matrices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#AssociationScheme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.AssociationScheme" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>INPUT:</dt><dd><ul class="simple">
+<li><p>adjacency_matrices: a list of 01-matrices forming an association scheme.</p></li>
+</ul>
+</dd>
+<dt>OUTPUT:</dt><dd><p>A class called .</p>
+</dd>
+</dl>
+<p><strong>Example:</strong> The Johnson scheme J(5,2) can be obtained as follows.</p>
+<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>sage: X = graphs.PetersenGraph()</p>
+<p>sage: A = X.adjacency_matrix()</p>
+<p>sage: B = X.complement().adjacency_matrix()</p>
+<p>sage: I = matrix.identity(X.order())</p>
+<p>sage: AS = AssociationScheme([I,A,B])</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="AssociationSchemes.generic_schemes.AssociationScheme.P_matrix">
 <span class="sig-name descname"><span class="pre">P_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#AssociationScheme.P_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.AssociationScheme.P_matrix" title="Link to this definition">¶</a></dt>
