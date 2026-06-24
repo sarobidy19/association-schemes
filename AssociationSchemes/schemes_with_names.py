@@ -43,7 +43,7 @@ def JohnsonScheme(n,k):
 	M = zero_matrix(binomial(n,k))
 	for i in range(len(V)):
 		A = V[i]
-		for j in rage(len(V)):
+		for j in range(len(V)):
 			B = V[j]
 			M[i,j] = k-len(set(A).intersection(set(B)))
 	return AssociationScheme(base_matrix_to_adjacency_matrices(M))
