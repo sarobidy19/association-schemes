@@ -13,7 +13,7 @@ QQ = RationalField()
 
 class AssociationScheme:
 	def __init__(self,gens):
-		"""
+		r"""
 		AssociationScheme(adjacency_matrices)
 		INPUT:
 		 - adjacency_matrices: a list of 01-matrices forming an association scheme.
@@ -42,7 +42,7 @@ class AssociationScheme:
 		return "A {0}-class association scheme of order {1}".format(len(self.gens)-1,self.gens[0].dimensions()[0])
 
 	def order(self):
-		"""Return the number of vertices in self.
+		r"""Return the number of vertices in self.
 
 		.. code-block:: sage
 
@@ -57,7 +57,7 @@ class AssociationScheme:
 		"""
 		return self.gens[0].dimensions()[0]
 	def rank(self):
-		"""Return the number of relations in self.
+		r"""Return the number of relations in self.
 
 		.. code-block:: sage
 
@@ -71,7 +71,7 @@ class AssociationScheme:
 		"""
 		return len(self.gens)
 	def adjacency_matrices(self):
-		"""Return the adjacency matrices of self as a list.
+		r"""Return the adjacency matrices of self as a list.
 
 		.. code-block:: sage
 
@@ -97,7 +97,7 @@ class AssociationScheme:
 		"""
 		return self.gens
 	def base_matrix(self):
-		"""
+		r"""
 
 		Return the base matrix of self. If :math:`(\Omega,\mathcal{R})` is an association scheme with adjacency matrices :math:`A_0 = I, A_1,\ldots, A_d`, then the *base matrix* of :math:`(\Omega,\mathcal{R})` is the matrix
 		:math:`0A_0 + 1A_1+2A_2+ \ldots+ dA_d`.
@@ -128,7 +128,7 @@ class AssociationScheme:
 			A += i*L[i]
 		return A
 	def intersection_number(self,i,j,k):
-		"""
+		r"""
 		Return the intersection number :math:`p_{ij}^k` of the association scheme ``self``.
 
 
@@ -163,7 +163,7 @@ class AssociationScheme:
 		return len(list(filter(check,range(n))))
 	def is_commutative(self):
 
-		"""
+		r"""
 	    Return whether or not ``self`` is a commutative association scheme.
 
 	    The :math:`d`-class assocition scheme :math:`(\Omega,\mathcal{R})` is commutative if its intersection numbers satisfy :math:`p_{ij}^k = p_{ji}^k`, for all :math:`0\leq i,j,k\leq d`.
@@ -192,7 +192,7 @@ class AssociationScheme:
 		return True
 	def automorphism_group(self):
 
-		"""
+		r"""
 		Return the automorphism group of ``self``, that is, the permutation group that preserves all relations of ``self``.
 
 		EXAMPLE:
@@ -218,7 +218,8 @@ class AssociationScheme:
 			G = G.intersection(DiGraph(L[i]).automorphism_group())
 		return G
 	def is_schurian(self):
-		"""
+
+		r"""
 		Return whether or not ``self`` is Schurian, that is, its relations are the orbitals of a transitive group
 
 		EXAMPLE:
@@ -242,7 +243,7 @@ class AssociationScheme:
 		return len(S.orbits()) == self.rank()
 	def character_table(self):
 
-		"""
+		r"""
 		Return the first eigenmatrix of ``self``.
 
 		EXAMPLE:
@@ -282,14 +283,15 @@ class AssociationScheme:
 
 	def P_matrix(self):
 
-		"""Return the first eigenmatrix of ``self``. This is the same as `character_table()`."""
+		r"""Return the first eigenmatrix of ``self``. This is the same as `character_table()`."""
 
 		if self.is_commutative() == False:
 			return "Error: Association Scheme not commutative"
 		else:
 			return self.character_table()
 	def Q_matrix(self):
-		"""Return the first eigenmatrix of ``self``.
+
+		r"""Return the first eigenmatrix of ``self``.
 
 		EXAMPLE:
 
@@ -319,7 +321,8 @@ class AssociationScheme:
 			P = self.character_table()
 			return self.order()*P.inverse()
 	def dimension_of_t_zero(self,matrix=False):
-		"""
+
+		r"""
 		Return the dimension of the subspace :math:`T_0` of the Terwilliger algebra with respect to any vertex.
 
 		EXAMPLE:
@@ -358,7 +361,8 @@ class AssociationScheme:
 			return mat
 
 	def dimension_of_centralizer_algebra(self,v,matrix = False):
-		"""
+
+		r"""
 
 		Return the dimension of the centralizer algebra of the stabilizer of `vertex` in the automorphism group of ``self`` if ``matrix=False``. If ``matrix=True``, then it returns the block dimension decomposition of the centralizer algebra.
 
@@ -406,6 +410,7 @@ class AssociationScheme:
 			return Matrix(mat)
 
 	def ratio_bound(self,i):
+
 		r"""
 		Return the value of Hoffman's ratio bound for the i-th graph, if it is symmetric.
 
@@ -434,7 +439,8 @@ class AssociationScheme:
 				Ev = set(X.spectrum())
 				return X.order()/(1-max(Ev)/min(Ev))
 	def TerwilligerAlgebra(self,v,ring = CC):
-		"""
+
+		r"""
 		Return the Terwilliger algebra, over `ring`, of `self` with respect to `vertex`.
 
 		EXAMPLE:
@@ -459,7 +465,8 @@ class AssociationScheme:
 		T = M.subalgebra(gens)
 		return T
 	def graphs_in_scheme(self,digraphs=False):
-		"""
+
+		r"""
 
 		Return the graphs corresponding to symmetric classes of ``self`` if ``digraphs = False``, otherwise, all digraphs of the association scheme.
 
@@ -491,7 +498,8 @@ class AssociationScheme:
 					grphs.append(DiGraph(A,vertex_labels=range(1,1+A.dimensions()[0])))
 			return grphs
 	def is_formally_self_dual(self):
-		"""
+
+		r"""
 		Return whether `self` is formally self dual. That is, whether $Q = \overline{P}$.
 
 		EXAMPLE:
@@ -514,7 +522,7 @@ class AssociationScheme:
 		return self.P_matrix() == self.Q_matrix().conjugate_transpose().transpose()
 	def krein_parameters(self,i,j,k):
 
-		"""
+		r"""
 		Return the value of the Krein parameter :math:`q_{ij}^k`.
 
 		INPUT: integers :math:`i,j,` and :math:`k` between :math:`0` and the :math:`r`, where :math:`r+1` is the rank of the association scheme.
@@ -540,7 +548,8 @@ class AssociationScheme:
 		return self.order()*(T[k][1]*(Schur_multiplication(T[i][1],T[j][1],ring))).trace()/(T[k][1]).trace()
 
 	def adjacency_algebra(self,ring):
-		"""
+
+		r"""
 		Return the adjacency algebra of `self` over the commutative ring ``ring``. That is, the algebra generated by the adjacency matrices, over the commutative algebra ``ring``.
 
 		EXAMPLE:
@@ -571,7 +580,7 @@ class AssociationScheme:
 	#def is_coherent_configuration(self):
 	def is_triply_regular(self):
 
-		"""
+		r"""
 		Return whether or not the association scheme is triply regular.
 
 		EXAMPLE:
@@ -591,7 +600,7 @@ class AssociationScheme:
 		return self.TerwilligerAlgebra(1).dimension() == self.dimension_of_t_zero()
 
 	def is_AssociationScheme(self):
-		"""
+		r"""
 		Return whether ``self`` is an association scheme.
 
 		EXAMPLE:
@@ -638,7 +647,7 @@ class AssociationScheme:
 						return False
 		return True
 	def fusion(self,P,return_scheme = False):
-		"""
+		r"""
 		Return whether the partition ``P`` of the vertices is an association scheme.
 
 		EXAMPLE:
@@ -701,7 +710,7 @@ class AssociationScheme:
 		v = Matrix(v)
 		L = self.adjacency_matrices()
 		inner_dist = [(1/len(Y)*v*L[i]*v.transpose())[0,0] for i in range(self.rank())]
-		return Matrix(inner_dist)
+		return Matrix(IntegerRing(),inner_dist)
 
 def common_eigenvectors(L):
 	eigenspaces_blocks = spectral_decomposition_of_matrix(L[0])
