@@ -245,69 +245,80 @@
 <span class="c1">#from sage.all import SetPartitions</span>
 <span class="c1">#from sage.all import Posets</span>
 <span class="c1">#from sage.all import matrix</span>
-<span class="c1">#from schemes.generic_schemes import AssociationScheme</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AssociationSchemes.generic_schemes</span><span class="w"> </span><span class="kn">import</span> <span class="n">AssociationScheme</span>
 <span class="c1">#from schemes.schemes_with_names import base_matrix_to_adjacency_matrice</span>
 
 
-<div class="viewcode-block" id="is_even_partition">
-<a class="viewcode-back" href="../../AssociationSchemes.perfect_matching.html#AssociationSchemes.perfect_matching.is_even_partition">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">is_even_partition</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_even_partition</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
 	<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
 		<span class="k">if</span> <span class="n">is_even</span><span class="p">(</span><span class="n">ZZ</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
 			<span class="k">return</span> <span class="kc">False</span>
 		<span class="k">else</span><span class="p">:</span>
 			<span class="k">pass</span>
-	<span class="k">return</span> <span class="kc">True</span></div>
-
-<div class="viewcode-block" id="cycle_type_of_perfect_matching">
-<a class="viewcode-back" href="../../AssociationSchemes.perfect_matching.html#AssociationSchemes.perfect_matching.cycle_type_of_perfect_matching">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">cycle_type_of_perfect_matching</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">):</span>
+	<span class="k">return</span> <span class="kc">True</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_cycle_type_of_perfect_matching</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">):</span>
 	<span class="n">X</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
 	<span class="n">E</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 	<span class="n">X</span><span class="o">.</span><span class="n">add_edges</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
 	<span class="n">cycle_type</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">connected_components_subgraphs</span><span class="p">()])</span>
 	<span class="n">cycle_type</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-	<span class="k">return</span> <span class="n">Partition</span><span class="p">(</span><span class="n">cycle_type</span><span class="p">)</span></div>
+	<span class="k">return</span> <span class="n">Partition</span><span class="p">(</span><span class="n">cycle_type</span><span class="p">)</span>
 
-<div class="viewcode-block" id="PerfectMatchingScheme">
-<a class="viewcode-back" href="../../AssociationSchemes.perfect_matching.html#AssociationSchemes.perfect_matching.PerfectMatchingScheme">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">PerfectMatchingScheme</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Return the perfect matching association scheme with parameter equal to `self`.</span>
-
-<span class="sd">	EXAMPLE:</span>
-
-<span class="sd">	.. code-block:: sage</span>
-
-<span class="sd">		sage: X = graphs.ShrikhandeGraph()</span>
-<span class="sd">		sage: G = X.automorphism_group()</span>
-<span class="sd">		sage: A = X.adjacency_matrix()</span>
-<span class="sd">		sage: B = X.complement().adjacency_matrix()</span>
-<span class="sd">		sage: I = matrix.identity(X.order())</span>
-<span class="sd">		sage: AS = AssociationScheme([I,A,B])</span>
-<span class="sd">		sage: AS1 = OrbitalSchemeTransitiveGroup(G)</span>
-<span class="sd">		sage: AS.is_formally_self_dual()</span>
-<span class="sd">		True</span>
-<span class="sd">		sage: AS1.is_formally_self_dual()</span>
-<span class="sd">		False</span>
-
-<span class="sd">	&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_perfect_matching_scheme_constructor</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
 	<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">k</span>
 	<span class="n">V</span> <span class="o">=</span> <span class="n">SetPartitions</span><span class="p">(</span><span class="n">n</span><span class="p">,[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">k</span><span class="p">)</span>
 	<span class="n">mat</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">zero</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
 	<span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 	<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Posets</span><span class="o">.</span><span class="n">IntegerPartitionsDominanceOrder</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-		<span class="k">if</span> <span class="n">is_even_partition</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">_is_even_partition</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
 			<span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
 			<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">)):</span>
 		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">)):</span>
 			<span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">j</span><span class="p">:</span>
-				<span class="n">p</span> <span class="o">=</span> <span class="n">cycle_type_of_perfect_matching</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">V</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+				<span class="n">p</span> <span class="o">=</span> <span class="n">_cycle_type_of_perfect_matching</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">V</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 				<span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
-	<span class="n">L</span> <span class="o">=</span> <span class="n">base_matrix_to_adjacency_matrices</span><span class="p">(</span><span class="n">mat</span><span class="o">+</span><span class="n">mat</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
-	<span class="k">return</span> <span class="n">AssociationScheme</span><span class="p">(</span><span class="n">L</span><span class="p">)</span></div>
+	<span class="n">L</span> <span class="o">=</span> <span class="n">_base_matrix_to_adjacency_matrices</span><span class="p">(</span><span class="n">mat</span><span class="o">+</span><span class="n">mat</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+	<span class="k">return</span> <span class="n">L</span>
+<div class="viewcode-block" id="PerfectMatchingScheme">
+<a class="viewcode-back" href="../../AssociationSchemes.perfect_matching.html#AssociationSchemes.perfect_matching.PerfectMatchingScheme">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PerfectMatchingScheme</span><span class="p">(</span><span class="n">AssociationScheme</span><span class="p">):</span>
+<span class="w">	</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Return the perfect matching association scheme with parameter equal to `self`.</span>
+
+<span class="sd">	EXAMPLE:</span>
+
+<span class="sd">	.. code-block:: python</span>
+
+<span class="sd">		sage: AS = PerfectMatchingScheme(4)</span>
+<span class="sd">		sage: AS</span>
+<span class="sd">		A 4-class association scheme of order 105</span>
+<span class="sd">		sage: AS.P_matrix()</span>
+<span class="sd">		[ 1 12 12 32 48]</span>
+<span class="sd">		[ 1  2  7 -8 -2]</span>
+<span class="sd">		[ 1 -6  3  8 -6]</span>
+<span class="sd">		[ 1  5 -2  4 -8]</span>
+<span class="sd">		[ 1 -1 -2 -2  4]</span>
+
+
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">gens</span> <span class="o">=</span> <span class="n">_perfect_matching_scheme_constructor</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PerfectMatchingScheme.parameter">
+<a class="viewcode-back" href="../../AssociationSchemes.perfect_matching.html#AssociationSchemes.perfect_matching.PerfectMatchingScheme.parameter">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">parameter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">k</span></div>
+
+
+<div class="viewcode-block" id="PerfectMatchingScheme.vertices">
+<a class="viewcode-back" href="../../AssociationSchemes.perfect_matching.html#AssociationSchemes.perfect_matching.PerfectMatchingScheme.vertices">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">k</span>
+		<span class="n">V</span> <span class="o">=</span> <span class="n">SetPartitions</span><span class="p">(</span><span class="n">n</span><span class="p">,[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">k</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">V</span></div>
+</div>
 
 </pre></div>
         </article>

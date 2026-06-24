@@ -245,35 +245,34 @@
         <article role="main" id="furo-main-content">
           <section id="module-AssociationSchemes.perfect_matching">
 <span id="associationschemes-perfect-matching-module"></span><h1>AssociationSchemes.perfect_matching module<a class="headerlink" href="#module-AssociationSchemes.perfect_matching" title="Link to this heading">¶</a></h1>
-<dl class="py function">
+<dl class="py class">
 <dt class="sig sig-object py" id="AssociationSchemes.perfect_matching.PerfectMatchingScheme">
-<span class="sig-prename descclassname"><span class="pre">AssociationSchemes.perfect_matching.</span></span><span class="sig-name descname"><span class="pre">PerfectMatchingScheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/perfect_matching.html#PerfectMatchingScheme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.perfect_matching.PerfectMatchingScheme" title="Link to this definition">¶</a></dt>
-<dd><p>Return the perfect matching association scheme with parameter equal to <cite>self</cite>.</p>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">AssociationSchemes.perfect_matching.</span></span><span class="sig-name descname"><span class="pre">PerfectMatchingScheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/perfect_matching.html#PerfectMatchingScheme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.perfect_matching.PerfectMatchingScheme" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme" title="AssociationSchemes.generic_schemes.AssociationScheme"><code class="xref py py-class docutils literal notranslate"><span class="pre">AssociationScheme</span></code></a></p>
+<p>Return the perfect matching association scheme with parameter equal to <cite>self</cite>.</p>
 <p>EXAMPLE:</p>
-<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">X</span> <span class="o">=</span> <span class="n">graphs</span><span class="o">.</span><span class="n">ShrikhandeGraph</span><span class="p">()</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">G</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">automorphism_group</span><span class="p">()</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">A</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">()</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">B</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">complement</span><span class="p">()</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">()</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">I</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">order</span><span class="p">())</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">AS</span> <span class="o">=</span> <span class="n">AssociationScheme</span><span class="p">([</span><span class="n">I</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">])</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">AS1</span> <span class="o">=</span> <span class="n">OrbitalSchemeTransitiveGroup</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">AS</span><span class="o">.</span><span class="n">is_formally_self_dual</span><span class="p">()</span>
-<span class="kc">True</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">AS1</span><span class="o">.</span><span class="n">is_formally_self_dual</span><span class="p">()</span>
-<span class="kc">False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">AS</span> <span class="o">=</span> <span class="n">PerfectMatchingScheme</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">AS</span>
+<span class="n">A</span> <span class="mi">4</span><span class="o">-</span><span class="k">class</span><span class="w"> </span><span class="nc">association</span> <span class="n">scheme</span> <span class="n">of</span> <span class="n">order</span> <span class="mi">105</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">AS</span><span class="o">.</span><span class="n">P_matrix</span><span class="p">()</span>
+<span class="p">[</span> <span class="mi">1</span> <span class="mi">12</span> <span class="mi">12</span> <span class="mi">32</span> <span class="mi">48</span><span class="p">]</span>
+<span class="p">[</span> <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">7</span> <span class="o">-</span><span class="mi">8</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span> <span class="mi">1</span> <span class="o">-</span><span class="mi">6</span>  <span class="mi">3</span>  <span class="mi">8</span> <span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+<span class="p">[</span> <span class="mi">1</span>  <span class="mi">5</span> <span class="o">-</span><span class="mi">2</span>  <span class="mi">4</span> <span class="o">-</span><span class="mi">8</span><span class="p">]</span>
+<span class="p">[</span> <span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">2</span>  <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
+<dl class="py method">
+<dt class="sig sig-object py" id="AssociationSchemes.perfect_matching.PerfectMatchingScheme.parameter">
+<span class="sig-name descname"><span class="pre">parameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/perfect_matching.html#PerfectMatchingScheme.parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.perfect_matching.PerfectMatchingScheme.parameter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="AssociationSchemes.perfect_matching.PerfectMatchingScheme.vertices">
+<span class="sig-name descname"><span class="pre">vertices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/perfect_matching.html#PerfectMatchingScheme.vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.perfect_matching.PerfectMatchingScheme.vertices" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AssociationSchemes.perfect_matching.cycle_type_of_perfect_matching">
-<span class="sig-prename descclassname"><span class="pre">AssociationSchemes.perfect_matching.</span></span><span class="sig-name descname"><span class="pre">cycle_type_of_perfect_matching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/perfect_matching.html#cycle_type_of_perfect_matching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.perfect_matching.cycle_type_of_perfect_matching" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AssociationSchemes.perfect_matching.is_even_partition">
-<span class="sig-prename descclassname"><span class="pre">AssociationSchemes.perfect_matching.</span></span><span class="sig-name descname"><span class="pre">is_even_partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/perfect_matching.html#is_even_partition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.perfect_matching.is_even_partition" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </section>
 
@@ -333,9 +332,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">AssociationSchemes.perfect_matching module</a><ul>
-<li><a class="reference internal" href="#AssociationSchemes.perfect_matching.PerfectMatchingScheme"><code class="docutils literal notranslate"><span class="pre">PerfectMatchingScheme()</span></code></a></li>
-<li><a class="reference internal" href="#AssociationSchemes.perfect_matching.cycle_type_of_perfect_matching"><code class="docutils literal notranslate"><span class="pre">cycle_type_of_perfect_matching()</span></code></a></li>
-<li><a class="reference internal" href="#AssociationSchemes.perfect_matching.is_even_partition"><code class="docutils literal notranslate"><span class="pre">is_even_partition()</span></code></a></li>
+<li><a class="reference internal" href="#AssociationSchemes.perfect_matching.PerfectMatchingScheme"><code class="docutils literal notranslate"><span class="pre">PerfectMatchingScheme</span></code></a><ul>
+<li><a class="reference internal" href="#AssociationSchemes.perfect_matching.PerfectMatchingScheme.parameter"><code class="docutils literal notranslate"><span class="pre">PerfectMatchingScheme.parameter()</span></code></a></li>
+<li><a class="reference internal" href="#AssociationSchemes.perfect_matching.PerfectMatchingScheme.vertices"><code class="docutils literal notranslate"><span class="pre">PerfectMatchingScheme.vertices()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
