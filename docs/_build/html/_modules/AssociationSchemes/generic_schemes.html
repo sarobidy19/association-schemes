@@ -253,30 +253,26 @@
 <div class="viewcode-block" id="AssociationScheme">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">AssociationScheme</span><span class="p">:</span>
-	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">gens</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">	</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		AssociationScheme(adjacency_matrices)</span>
 <span class="sd">		INPUT:</span>
 <span class="sd">		 - adjacency_matrices: a list of 01-matrices forming an association scheme.</span>
 <span class="sd">		OUTPUT:</span>
-<span class="sd">		  A class called .</span>
+<span class="sd">		  A class called AssociationScheme.</span>
 
 
 <span class="sd">		**Example:** The Johnson scheme J(5,2) can be obtained as follows.</span>
 
 <span class="sd">		.. code-block:: sage</span>
 
-<span class="sd">		sage: X = graphs.PetersenGraph()</span>
+<span class="sd">			sage: X = graphs.PetersenGraph()</span>
+<span class="sd">			sage: A = X.adjacency_matrix()</span>
+<span class="sd">			sage: B = X.complement().adjacency_matrix()</span>
+<span class="sd">			sage: I = matrix.identity(X.order())</span>
+<span class="sd">			sage: AS = AssociationScheme([I,A,B])</span>
 
-<span class="sd">		sage: A = X.adjacency_matrix()</span>
-
-<span class="sd">		sage: B = X.complement().adjacency_matrix()</span>
-
-<span class="sd">		sage: I = matrix.identity(X.order())</span>
-
-<span class="sd">		sage: AS = AssociationScheme([I,A,B])</span>
-
-<span class="sd">		&quot;&quot;&quot;</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">gens</span><span class="p">):</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">gens</span> <span class="o">=</span> <span class="n">gens</span>
 
 	<span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -285,7 +281,7 @@
 <div class="viewcode-block" id="AssociationScheme.order">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.order">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the number of vertices in self.</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Return the number of vertices in self.</span>
 
 <span class="sd">		.. code-block:: sage</span>
 
@@ -303,7 +299,7 @@
 <div class="viewcode-block" id="AssociationScheme.rank">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.rank">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">rank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the number of relations in self.</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Return the number of relations in self.</span>
 
 <span class="sd">		.. code-block:: sage</span>
 
@@ -320,7 +316,7 @@
 <div class="viewcode-block" id="AssociationScheme.adjacency_matrices">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.adjacency_matrices">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">adjacency_matrices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the adjacency matrices of self as a list.</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Return the adjacency matrices of self as a list.</span>
 
 <span class="sd">		.. code-block:: sage</span>
 
@@ -349,7 +345,7 @@
 <div class="viewcode-block" id="AssociationScheme.base_matrix">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.base_matrix">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">base_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">		Return the base matrix of self. If :math:`(\Omega,\mathcal{R})` is an association scheme with adjacency matrices :math:`A_0 = I, A_1,\ldots, A_d`, then the *base matrix* of :math:`(\Omega,\mathcal{R})` is the matrix</span>
 <span class="sd">		:math:`0A_0 + 1A_1+2A_2+ \ldots+ dA_d`.</span>
@@ -383,7 +379,7 @@
 <div class="viewcode-block" id="AssociationScheme.intersection_number">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.intersection_number">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">intersection_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return the intersection number :math:`p_{ij}^k` of the association scheme ``self``.</span>
 
 
@@ -421,7 +417,7 @@
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_commutative">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">is_commutative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">	    Return whether or not ``self`` is a commutative association scheme.</span>
 
 <span class="sd">	    The :math:`d`-class assocition scheme :math:`(\Omega,\mathcal{R})` is commutative if its intersection numbers satisfy :math:`p_{ij}^k = p_{ji}^k`, for all :math:`0\leq i,j,k\leq d`.</span>
@@ -453,7 +449,7 @@
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.automorphism_group">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">automorphism_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return the automorphism group of ``self``, that is, the permutation group that preserves all relations of ``self``.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -482,7 +478,8 @@
 <div class="viewcode-block" id="AssociationScheme.is_schurian">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_schurian">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">is_schurian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return whether or not ``self`` is Schurian, that is, its relations are the orbitals of a transitive group</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -509,7 +506,7 @@
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.character_table">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">character_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return the first eigenmatrix of ``self``.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -538,7 +535,7 @@
 			<span class="k">return</span> <span class="s2">&quot;Association Scheme not commutative&quot;</span>
 		<span class="k">else</span><span class="p">:</span>
 			<span class="n">table</span> <span class="o">=</span> <span class="p">[]</span>
-			<span class="n">T</span> <span class="o">=</span> <span class="n">common_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">())</span> <span class="c1">#can contain a matrix of zero</span>
+			<span class="n">T</span> <span class="o">=</span> <span class="n">_common_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">())</span> <span class="c1">#can contain a matrix of zero</span>
 			<span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
 			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
 				<span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
@@ -552,7 +549,7 @@
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.P_matrix">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">P_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the first eigenmatrix of ``self``. This is the same as `character_table()`.&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Return the first eigenmatrix of ``self``. This is the same as `character_table()`.&quot;&quot;&quot;</span>
 
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_commutative</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
 			<span class="k">return</span> <span class="s2">&quot;Error: Association Scheme not commutative&quot;</span>
@@ -562,7 +559,8 @@
 <div class="viewcode-block" id="AssociationScheme.Q_matrix">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.Q_matrix">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">Q_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;Return the first eigenmatrix of ``self``.</span>
+
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Return the first eigenmatrix of ``self``.</span>
 
 <span class="sd">		EXAMPLE:</span>
 
@@ -595,7 +593,8 @@
 <div class="viewcode-block" id="AssociationScheme.dimension_of_t_zero">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.dimension_of_t_zero">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">dimension_of_t_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">matrix</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return the dimension of the subspace :math:`T_0` of the Terwilliger algebra with respect to any vertex.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -637,7 +636,8 @@
 <div class="viewcode-block" id="AssociationScheme.dimension_of_centralizer_algebra">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.dimension_of_centralizer_algebra">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">dimension_of_centralizer_algebra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">matrix</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">		Return the dimension of the centralizer algebra of the stabilizer of `vertex` in the automorphism group of ``self`` if ``matrix=False``. If ``matrix=True``, then it returns the block dimension decomposition of the centralizer algebra.</span>
 
@@ -688,6 +688,7 @@
 <div class="viewcode-block" id="AssociationScheme.ratio_bound">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.ratio_bound">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">ratio_bound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+
 <span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return the value of Hoffman&#39;s ratio bound for the i-th graph, if it is symmetric.</span>
 
@@ -719,7 +720,8 @@
 <div class="viewcode-block" id="AssociationScheme.TerwilligerAlgebra">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.TerwilligerAlgebra">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">TerwilligerAlgebra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">ring</span> <span class="o">=</span> <span class="n">CC</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return the Terwilliger algebra, over `ring`, of `self` with respect to `vertex`.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -747,7 +749,8 @@
 <div class="viewcode-block" id="AssociationScheme.graphs_in_scheme">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.graphs_in_scheme">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">graphs_in_scheme</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">digraphs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">		Return the graphs corresponding to symmetric classes of ``self`` if ``digraphs = False``, otherwise, all digraphs of the association scheme.</span>
 
@@ -782,7 +785,8 @@
 <div class="viewcode-block" id="AssociationScheme.is_formally_self_dual">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_formally_self_dual">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">is_formally_self_dual</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return whether `self` is formally self dual. That is, whether $Q = \overline{P}$.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -808,7 +812,7 @@
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.krein_parameters">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">krein_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
 
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return the value of the Krein parameter :math:`q_{ij}^k`.</span>
 
 <span class="sd">		INPUT: integers :math:`i,j,` and :math:`k` between :math:`0` and the :math:`r`, where :math:`r+1` is the rank of the association scheme.</span>
@@ -830,14 +834,15 @@
 <span class="sd">			5</span>
 <span class="sd">		&quot;&quot;&quot;</span>
 
-		<span class="n">T</span> <span class="o">=</span> <span class="n">common_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">())</span>
-		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">Schur_multiplication</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">ring</span><span class="p">)))</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span></div>
+		<span class="n">T</span> <span class="o">=</span> <span class="n">_common_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">())</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">_Schur_multiplication</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">ring</span><span class="p">)))</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="AssociationScheme.adjacency_algebra">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.adjacency_algebra">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">adjacency_algebra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ring</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return the adjacency algebra of `self` over the commutative ring ``ring``. That is, the algebra generated by the adjacency matrices, over the commutative algebra ``ring``.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -874,7 +879,7 @@
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_triply_regular">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">is_triply_regular</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return whether or not the association scheme is triply regular.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -897,7 +902,7 @@
 <div class="viewcode-block" id="AssociationScheme.is_AssociationScheme">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.is_AssociationScheme">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">is_AssociationScheme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return whether ``self`` is an association scheme.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -947,7 +952,7 @@
 <div class="viewcode-block" id="AssociationScheme.fusion">
 <a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.AssociationScheme.fusion">[docs]</a>
 	<span class="k">def</span><span class="w"> </span><span class="nf">fusion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">return_scheme</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Return whether the partition ``P`` of the vertices is an association scheme.</span>
 
 <span class="sd">		EXAMPLE:</span>
@@ -1013,14 +1018,12 @@
 		<span class="n">v</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 		<span class="n">L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_matrices</span><span class="p">()</span>
 		<span class="n">inner_dist</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="o">.</span><span class="n">transpose</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">())]</span>
-		<span class="k">return</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">inner_dist</span><span class="p">)</span></div>
+		<span class="k">return</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span><span class="n">inner_dist</span><span class="p">)</span></div>
 </div>
 
 
-<div class="viewcode-block" id="common_eigenvectors">
-<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.common_eigenvectors">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">common_eigenvectors</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-	<span class="n">eigenspaces_blocks</span> <span class="o">=</span> <span class="n">spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_common_eigenvectors</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+	<span class="n">eigenspaces_blocks</span> <span class="o">=</span> <span class="n">_spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
 		<span class="n">A</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 		<span class="n">new_eigenspaces_blocks</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1032,7 +1035,7 @@
 						<span class="k">break</span>
 				<span class="n">new_eigenspaces_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="p">[</span><span class="n">ev</span><span class="p">],</span><span class="n">P</span><span class="p">))</span>
 			<span class="k">else</span><span class="p">:</span>
-				<span class="n">Ev</span> <span class="o">=</span> <span class="n">spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+				<span class="n">Ev</span> <span class="o">=</span> <span class="n">_spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 				<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">Ev</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
 					<span class="n">y</span><span class="p">,</span><span class="n">C</span> <span class="o">=</span> <span class="n">Ev</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 					<span class="n">new_eigenspaces_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="n">P</span><span class="o">*</span><span class="n">C</span><span class="p">))</span>
@@ -1049,13 +1052,10 @@
 				<span class="k">pass</span>
 			<span class="k">else</span><span class="p">:</span>
 				<span class="n">common_eigenspaces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">common_eigenspaces</span></div>
+	<span class="k">return</span> <span class="n">common_eigenspaces</span>
 
 
-
-<div class="viewcode-block" id="spectral_decomposition_of_matrix">
-<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.spectral_decomposition_of_matrix">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_spectral_decomposition_of_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
 	<span class="n">E</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">right_eigenspaces</span><span class="p">()</span>
 	<span class="n">eigenvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">))]</span>
 	<span class="n">mats</span> <span class="o">=</span> <span class="p">[</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">matrix</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">))]</span>
@@ -1069,25 +1069,19 @@
 			<span class="n">a</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 			<span class="n">B</span> <span class="o">+=</span> <span class="n">a</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">conjugate_transpose</span><span class="p">())</span><span class="o">.</span><span class="n">list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 		<span class="n">spectral_eigenspaces</span><span class="o">.</span><span class="n">append</span><span class="p">(([</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span><span class="n">B</span><span class="p">))</span>
-	<span class="k">return</span> <span class="n">spectral_eigenspaces</span></div>
+	<span class="k">return</span> <span class="n">spectral_eigenspaces</span>
 
-
-<div class="viewcode-block" id="Schur_multiplication">
-<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.Schur_multiplication">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">Schur_multiplication</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">ring</span> <span class="o">=</span> <span class="n">QQ</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_Schur_multiplication</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">ring</span> <span class="o">=</span> <span class="n">QQ</span><span class="p">):</span>
 	<span class="n">C</span> <span class="o">=</span> <span class="n">zero_matrix</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]):</span>
 		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dimensions</span><span class="p">()[</span><span class="mi">0</span><span class="p">]):</span>
 			<span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
-	<span class="k">return</span> <span class="n">C</span></div>
-
+	<span class="k">return</span> <span class="n">C</span>
 
 
 <span class="c1">#def</span>
 
-<div class="viewcode-block" id="base_matrix_to_adjacency_matrices">
-<a class="viewcode-back" href="../../AssociationSchemes.generic_schemes.html#AssociationSchemes.generic_schemes.base_matrix_to_adjacency_matrices">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">base_matrix_to_adjacency_matrices</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_base_matrix_to_adjacency_matrices</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
 	<span class="n">d</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 	<span class="n">adjacency_matrices</span> <span class="o">=</span> <span class="p">[]</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
@@ -1098,8 +1092,7 @@
 			<span class="k">if</span> <span class="n">M</span><span class="p">[</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
 				<span class="n">A</span><span class="p">[</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 		<span class="n">adjacency_matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">adjacency_matrices</span></div>
-
+	<span class="k">return</span> <span class="n">adjacency_matrices</span>
 </pre></div>
         </article>
       </div>

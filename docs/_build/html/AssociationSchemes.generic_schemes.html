@@ -247,8 +247,24 @@
 <span id="associationschemes-generic-schemes-module"></span><h1>AssociationSchemes.generic_schemes module<a class="headerlink" href="#module-AssociationSchemes.generic_schemes" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="AssociationSchemes.generic_schemes.AssociationScheme">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">AssociationSchemes.generic_schemes.</span></span><span class="sig-name descname"><span class="pre">AssociationScheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gens</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#AssociationScheme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.AssociationScheme" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">AssociationSchemes.generic_schemes.</span></span><span class="sig-name descname"><span class="pre">AssociationScheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adjacency_matrices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#AssociationScheme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.AssociationScheme" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>INPUT:</dt><dd><ul class="simple">
+<li><p>adjacency_matrices: a list of 01-matrices forming an association scheme.</p></li>
+</ul>
+</dd>
+<dt>OUTPUT:</dt><dd><p>A class called AssociationScheme.</p>
+</dd>
+</dl>
+<p><strong>Example:</strong> The Johnson scheme J(5,2) can be obtained as follows.</p>
+<div class="highlight-sage notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="n">X</span> <span class="o">=</span> <span class="n">graphs</span><span class="o">.</span><span class="n">PetersenGraph</span><span class="p">()</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">A</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">()</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">B</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">complement</span><span class="p">()</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">()</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">I</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">order</span><span class="p">())</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">AS</span> <span class="o">=</span> <span class="n">AssociationScheme</span><span class="p">([</span><span class="n">I</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">])</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="AssociationSchemes.generic_schemes.AssociationScheme.P_matrix">
 <span class="sig-name descname"><span class="pre">P_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#AssociationScheme.P_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.AssociationScheme.P_matrix" title="Link to this definition">¶</a></dt>
@@ -703,26 +719,6 @@
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="AssociationSchemes.generic_schemes.Schur_multiplication">
-<span class="sig-prename descclassname"><span class="pre">AssociationSchemes.generic_schemes.</span></span><span class="sig-name descname"><span class="pre">Schur_multiplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Rational</span> <span class="pre">Field</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#Schur_multiplication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.Schur_multiplication" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AssociationSchemes.generic_schemes.base_matrix_to_adjacency_matrices">
-<span class="sig-prename descclassname"><span class="pre">AssociationSchemes.generic_schemes.</span></span><span class="sig-name descname"><span class="pre">base_matrix_to_adjacency_matrices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#base_matrix_to_adjacency_matrices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.base_matrix_to_adjacency_matrices" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AssociationSchemes.generic_schemes.common_eigenvectors">
-<span class="sig-prename descclassname"><span class="pre">AssociationSchemes.generic_schemes.</span></span><span class="sig-name descname"><span class="pre">common_eigenvectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#common_eigenvectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.common_eigenvectors" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="AssociationSchemes.generic_schemes.spectral_decomposition_of_matrix">
-<span class="sig-prename descclassname"><span class="pre">AssociationSchemes.generic_schemes.</span></span><span class="sig-name descname"><span class="pre">spectral_decomposition_of_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/AssociationSchemes/generic_schemes.html#spectral_decomposition_of_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AssociationSchemes.generic_schemes.spectral_decomposition_of_matrix" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </section>
 
         </article>
@@ -808,10 +804,6 @@
 <li><a class="reference internal" href="#AssociationSchemes.generic_schemes.AssociationScheme.ratio_bound"><code class="docutils literal notranslate"><span class="pre">AssociationScheme.ratio_bound()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#AssociationSchemes.generic_schemes.Schur_multiplication"><code class="docutils literal notranslate"><span class="pre">Schur_multiplication()</span></code></a></li>
-<li><a class="reference internal" href="#AssociationSchemes.generic_schemes.base_matrix_to_adjacency_matrices"><code class="docutils literal notranslate"><span class="pre">base_matrix_to_adjacency_matrices()</span></code></a></li>
-<li><a class="reference internal" href="#AssociationSchemes.generic_schemes.common_eigenvectors"><code class="docutils literal notranslate"><span class="pre">common_eigenvectors()</span></code></a></li>
-<li><a class="reference internal" href="#AssociationSchemes.generic_schemes.spectral_decomposition_of_matrix"><code class="docutils literal notranslate"><span class="pre">spectral_decomposition_of_matrix()</span></code></a></li>
 </ul>
 </li>
 </ul>

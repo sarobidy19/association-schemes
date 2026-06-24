@@ -46,7 +46,7 @@ def JohnsonScheme(n,k):
 		for j in range(len(V)):
 			B = V[j]
 			M[i,j] = k-len(set(A).intersection(set(B)))
-	return AssociationScheme(base_matrix_to_adjacency_matrices(M))
+	return AssociationScheme(_base_matrix_to_adjacency_matrices(M))
 
 def GrassmannScheme(q,n,k):
 	m = min(n-k,k)
@@ -58,7 +58,7 @@ def GrassmannScheme(q,n,k):
 		for j in range(len(V)):
 			B = V[j]
 			M[i,j] = m-len(A.intersection(B))
-	return AssociationScheme(base_matrix_to_adjacency_matrices(M))
+	return AssociationScheme(_base_matrix_to_adjacency_matrices(M))
 
 def HammingScheme(D,q):
 	V = Tuples(range(1,q+1),D)
@@ -67,7 +67,7 @@ def HammingScheme(D,q):
 		for j in range(len(V)):
 			test = lambda k: V[i][k] == V[j][k]
 			M[i,j] = D - len(list(filter(test,range(D))))
-	L = base_matrix_to_adjacency_matrices(M)
+	L = _base_matrix_to_adjacency_matrices(M)
 	return AssociationScheme(L)
 
 
@@ -119,7 +119,7 @@ def LeeScheme(q,k):
 				if tuple(d[u]) == tuple(lc):
 					#d[u], lc, u, i,j
 					M[i,j] = u
-	L = base_matrix_to_adjacency_matrices(M)
+	L = _base_matrix_to_adjacency_matrices(M)
 	return AssociationScheme(L)
 
 

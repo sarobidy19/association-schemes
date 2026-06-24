@@ -12,30 +12,26 @@ QQ = RationalField()
 
 
 class AssociationScheme:
-	def __init__(self,gens):
-		r"""
+	r"""
 		AssociationScheme(adjacency_matrices)
 		INPUT:
 		 - adjacency_matrices: a list of 01-matrices forming an association scheme.
 		OUTPUT:
-		  A class called .
+		  A class called AssociationScheme.
 
 
 		**Example:** The Johnson scheme J(5,2) can be obtained as follows.
 
 		.. code-block:: sage
 
-		sage: X = graphs.PetersenGraph()
+			sage: X = graphs.PetersenGraph()
+			sage: A = X.adjacency_matrix()
+			sage: B = X.complement().adjacency_matrix()
+			sage: I = matrix.identity(X.order())
+			sage: AS = AssociationScheme([I,A,B])
 
-		sage: A = X.adjacency_matrix()
-
-		sage: B = X.complement().adjacency_matrix()
-
-		sage: I = matrix.identity(X.order())
-
-		sage: AS = AssociationScheme([I,A,B])
-
-		"""
+	"""
+	def __init__(self,gens):
 		self.gens = gens
 
 	def __repr__(self):
@@ -272,7 +268,7 @@ class AssociationScheme:
 			return "Association Scheme not commutative"
 		else:
 			table = []
-			T = common_eigenvectors(self.adjacency_matrices()) #can contain a matrix of zero
+			T = _common_eigenvectors(self.adjacency_matrices()) #can contain a matrix of zero
 			r = self.rank()
 			for i in range(r):
 				row = []
@@ -544,8 +540,8 @@ class AssociationScheme:
 			5
 		"""
 
-		T = common_eigenvectors(self.adjacency_matrices())
-		return self.order()*(T[k][1]*(Schur_multiplication(T[i][1],T[j][1],ring))).trace()/(T[k][1]).trace()
+		T = _common_eigenvectors(self.adjacency_matrices())
+		return self.order()*(T[k][1]*(_Schur_multiplication(T[i][1],T[j][1],ring))).trace()/(T[k][1]).trace()
 
 	def adjacency_algebra(self,ring):
 
@@ -712,8 +708,8 @@ class AssociationScheme:
 		inner_dist = [(1/len(Y)*v*L[i]*v.transpose())[0,0] for i in range(self.rank())]
 		return Matrix(QQ,inner_dist)
 
-def common_eigenvectors(L):
-	eigenspaces_blocks = spectral_decomposition_of_matrix(L[0])
+def _common_eigenvectors(L):
+	eigenspaces_blocks = _spectral_decomposition_of_matrix(L[0])
 	for i in range(1,len(L)):
 		A = L[i]
 		new_eigenspaces_blocks = []
@@ -725,7 +721,7 @@ def common_eigenvectors(L):
 						break
 				new_eigenspaces_blocks.append((x+[ev],P))
 			else:
-				Ev = spectral_decomposition_of_matrix(B)
+				Ev = _spectral_decomposition_of_matrix(B)
 				if len(Ev) == 1:
 					y,C = Ev[0]
 					new_eigenspaces_blocks.append((x+y,P*C))
@@ -745,7 +741,7 @@ def common_eigenvectors(L):
 	return common_eigenspaces
 
 
-def spectral_decomposition_of_matrix(A):
+def _spectral_decomposition_of_matrix(A):
 	E = A.right_eigenspaces()
 	eigenvalues = [E[i][0] for i in range(len(E))]
 	mats = [E[i][1].matrix() for i in range(len(E))]
@@ -761,7 +757,7 @@ def spectral_decomposition_of_matrix(A):
 		spectral_eigenspaces.append(([E[i][0]],B))
 	return spectral_eigenspaces
 
-def Schur_multiplication(A,B,ring = QQ):
+def _Schur_multiplication(A,B,ring = QQ):
 	C = zero_matrix(ring,A.dimensions()[0])
 	for i in range(A.dimensions()[0]):
 		for j in range(A.dimensions()[0]):
@@ -771,7 +767,7 @@ def Schur_multiplication(A,B,ring = QQ):
 
 #def
 
-def base_matrix_to_adjacency_matrices(M):
+def _base_matrix_to_adjacency_matrices(M):
 	d = len(set(M[0]))
 	adjacency_matrices = []
 	for i in range(d):
