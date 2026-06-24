@@ -710,7 +710,7 @@ class AssociationScheme:
 		v = Matrix(v)
 		L = self.adjacency_matrices()
 		inner_dist = [(1/len(Y)*v*L[i]*v.transpose())[0,0] for i in range(self.rank())]
-		return Matrix(IntegerRing(),inner_dist)
+		return Matrix(QQ,inner_dist)
 
 def common_eigenvectors(L):
 	eigenspaces_blocks = spectral_decomposition_of_matrix(L[0])
