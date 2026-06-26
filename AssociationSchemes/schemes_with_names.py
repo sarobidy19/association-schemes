@@ -6,8 +6,10 @@
 #from generic_schemes import AssociationScheme
 #from sage.matrix.special import matrix
 #from sage.rings.finite_rings.integer_mod_ring import Zmod
+from AssociationSchemes.generic_schemes import AssociationScheme
 
-def OrbitalSchemeTransitiveGroup(G):
+
+class OrbitalSchemeTransitiveGroup(AssociationScheme):
 
 	"""
 	Return the orbital scheme of the transitive group ``G``.
@@ -16,20 +18,22 @@ def OrbitalSchemeTransitiveGroup(G):
 
 	OUTPUT:  orbital scheme of the transitive group ``G``.
     """
-	V = G.domain()
-	G = PermutationGroup(G.gens())
-	S = G.orbital_digraphs()
-	A = AssociationScheme([x.adjacency_matrix(vertices = V) for x in S]+[matrix.identity(len(V))])
-	return A
+
+	def __init__(self,G):
+		V = G.domain()
+		G = PermutationGroup(G.gens())
+		S = G.orbital_digraphs()
+		self.gens = [x.adjacency_matrix(vertices = V) for x in S]+[matrix.identity(len(V))]
+
 
 def OrbitalSchemeGroupAction(G):
 
-	"""
-	Return the orbital scheme of the transitive group ``G``.
+	r"""
+		Return the orbital scheme of the transitive group ``G``.
 
-	INPUT:  ``G`` - a transitive group.
+		INPUT:  ``G`` - a transitive group.
 
-	OUTPUT:  orbital scheme of the transitive group ``G``.
+		OUTPUT:  orbital scheme of the transitive group ``G``.
     """
 
 	H = G.stabilizer(G.domain()[0])

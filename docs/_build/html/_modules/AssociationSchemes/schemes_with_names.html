@@ -245,10 +245,12 @@
 <span class="c1">#from generic_schemes import AssociationScheme</span>
 <span class="c1">#from sage.matrix.special import matrix</span>
 <span class="c1">#from sage.rings.finite_rings.integer_mod_ring import Zmod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">AssociationSchemes.generic_schemes</span><span class="w"> </span><span class="kn">import</span> <span class="n">AssociationScheme</span>
+
 
 <div class="viewcode-block" id="OrbitalSchemeTransitiveGroup">
 <a class="viewcode-back" href="../../AssociationSchemes.schemes_with_names.html#AssociationSchemes.schemes_with_names.OrbitalSchemeTransitiveGroup">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">OrbitalSchemeTransitiveGroup</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OrbitalSchemeTransitiveGroup</span><span class="p">(</span><span class="n">AssociationScheme</span><span class="p">):</span>
 
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">	Return the orbital scheme of the transitive group ``G``.</span>
@@ -257,23 +259,25 @@
 
 <span class="sd">	OUTPUT:  orbital scheme of the transitive group ``G``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-	<span class="n">V</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">domain</span><span class="p">()</span>
-	<span class="n">G</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
-	<span class="n">S</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">orbital_digraphs</span><span class="p">()</span>
-	<span class="n">A</span> <span class="o">=</span> <span class="n">AssociationScheme</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">(</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">V</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">S</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">matrix</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">))])</span>
-	<span class="k">return</span> <span class="n">A</span></div>
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">G</span><span class="p">):</span>
+		<span class="n">V</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">domain</span><span class="p">()</span>
+		<span class="n">G</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span>
+		<span class="n">S</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">orbital_digraphs</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">gens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">(</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">V</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">S</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">matrix</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">))]</span></div>
+
 
 
 <div class="viewcode-block" id="OrbitalSchemeGroupAction">
 <a class="viewcode-back" href="../../AssociationSchemes.schemes_with_names.html#AssociationSchemes.schemes_with_names.OrbitalSchemeGroupAction">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">OrbitalSchemeGroupAction</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
 
-<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Return the orbital scheme of the transitive group ``G``.</span>
+<span class="w">	</span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return the orbital scheme of the transitive group ``G``.</span>
 
-<span class="sd">	INPUT:  ``G`` - a transitive group.</span>
+<span class="sd">		INPUT:  ``G`` - a transitive group.</span>
 
-<span class="sd">	OUTPUT:  orbital scheme of the transitive group ``G``.</span>
+<span class="sd">		OUTPUT:  orbital scheme of the transitive group ``G``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 	<span class="n">H</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">stabilizer</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">domain</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>

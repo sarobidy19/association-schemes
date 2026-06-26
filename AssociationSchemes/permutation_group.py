@@ -167,3 +167,12 @@ class PermutationGroup(PermutationGroup_generic):
 			else:
 				pass
 		return True
+
+	def der_graph(self):
+		conjugacy_classes = self.conjugacy_classes_representatives()
+		Der_rep = list(filter(self.is_derangement,conjugacy_classes))
+		Der = []
+		for x in Der_rep:
+			Der += list(self.conjugacy_class(x))
+		X = sage.graphs.graph.Graph(self.cayley_graph(generators = Der))
+		return X
