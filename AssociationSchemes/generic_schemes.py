@@ -91,7 +91,11 @@ class AssociationScheme:
 			]
 
 		"""
-		return self.gens
+		L = self.gens
+		n = self.order()
+		for A in L:
+			if A == sage.all.identity_matrix()
+		return
 	def base_matrix(self):
 		r"""
 
