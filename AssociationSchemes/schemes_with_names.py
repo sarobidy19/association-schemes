@@ -6,7 +6,7 @@
 #from generic_schemes import AssociationScheme
 #from sage.matrix.special import matrix
 #from sage.rings.finite_rings.integer_mod_ring import Zmod
-from AssociationSchemes.generic_schemes import AssociationScheme
+#from AssociationSchemes.generic_schemes import AssociationScheme
 
 
 class OrbitalSchemeTransitiveGroup(AssociationScheme):

@@ -6,7 +6,7 @@
 #from sage.all import SetPartitions
 #from sage.all import Posets
 #from sage.all import matrix
-from AssociationSchemes.generic_schemes import AssociationScheme
+#from AssociationSchemes.generic_schemes import AssociationScheme
 #from schemes.schemes_with_names import base_matrix_to_adjacency_matrice
 
 
