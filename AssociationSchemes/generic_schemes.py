@@ -94,8 +94,13 @@ class AssociationScheme:
 		L = self.gens
 		n = self.order()
 		for A in L:
-			if A == sage.all.identity_matrix()
-		return
+			if A == sage.all.identity_matrix(n):
+				j = L.index(A)
+		adjacency_matrices = [L[j]]
+		for i in range(len(L)):
+			if i != j:
+				adjacency_matrices.append(L[i])
+		return adjacency_matrices
 	def base_matrix(self):
 		r"""
 
